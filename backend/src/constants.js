@@ -1,0 +1,1 @@
+export const DB_NAME = "work_in_progress";

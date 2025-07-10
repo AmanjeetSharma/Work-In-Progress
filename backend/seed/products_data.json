@@ -1,0 +1,1614 @@
+[
+    {
+        "name": "UltraSharp 27-inch 4K Monitor",
+        "brand": "Dell",
+        "model": "U2723QE",
+        "category": "monitor",
+        "price": 699.99,
+        "specs": {
+            "screen_size": "27 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "60Hz",
+            "response_time": "5ms",
+            "panel_type": "IPS",
+            "ports": "HDMI, DisplayPort, USB-C"
+        },
+        "rating": 4.7,
+        "reviews": 342
+    },
+    {
+        "name": "Magic Keyboard",
+        "brand": "Apple",
+        "model": "MK2A3LL/A",
+        "category": "keyboard",
+        "price": 99.00,
+        "specs": {
+            "type": "Wireless",
+            "layout": "QWERTY",
+            "backlight": "No",
+            "battery_life": "1 month",
+            "connectivity": "Bluetooth"
+        },
+        "rating": 4.3,
+        "reviews": 215
+    },
+    {
+        "name": "MX Master 3",
+        "brand": "Logitech",
+        "model": "910-005805",
+        "category": "mouse",
+        "price": 99.99, 
+        "specs": {
+            "type": "Wireless",
+            "dpi": "4000",
+            "buttons": "7",
+            "battery_life": "70 days",
+            "connectivity": "Bluetooth/Unifying Receiver"
+        },
+        "rating": 4.8,
+        "reviews": 876
+    },
+    {
+        "name": "OLED C1 Series 55-inch TV",
+        "brand": "LG",
+        "model": "OLED55C1PUB",
+        "category": "tv",
+        "price": 1299.99,
+        "specs": {
+            "screen_size": "55 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "120Hz",
+            "smart_platform": "webOS",
+            "hdr": "Dolby Vision, HDR10"
+        },
+        "rating": 4.9,
+        "reviews": 1203
+    },
+    {
+        "name": "iPhone 15 Pro",
+        "brand": "Apple",
+        "model": "A2848",
+        "category": "phone",
+        "price": 999.00,
+        "specs": {
+            "screen_size": "6.1 inches",
+            "resolution": "2556 x 1179",
+            "storage": "128GB",
+            "ram": "6GB",
+            "processor": "A17 Pro",
+            "camera": "Triple 48MP+12MP+12MP"
+        },
+        "rating": 4.8,
+        "reviews": 2450
+    },
+    {
+        "name": "Gaming Monitor 27-inch",
+        "brand": "ASUS",
+        "model": "VG279QM",
+        "category": "monitor",
+        "price": 299.99,
+        "specs": {
+            "screen_size": "27 inches",
+            "resolution": "1920 x 1080 (Full HD)",
+            "refresh_rate": "280Hz",
+            "response_time": "1ms",
+            "panel_type": "IPS"
+        },
+        "rating": 4.5,
+        "reviews": 567
+    },
+    {
+        "name": "Mechanical Gaming Keyboard",
+        "brand": "Razer",
+        "model": "BlackWidow V3",
+        "category": "keyboard",
+        "price": 139.99,
+        "specs": {
+            "type": "Wired",
+            "layout": "QWERTY",
+            "switches": "Razer Green",
+            "backlight": "RGB",
+            "keycaps": "Double-shot PBT"
+        },
+        "rating": 4.6,
+        "reviews": 892
+    },
+    {
+        "name": "G Pro Wireless Gaming Mouse",
+        "brand": "Logitech",
+        "model": "910-005280",
+        "category": "mouse",
+        "price": 129.99,
+        "specs": {
+            "type": "Wireless",
+            "dpi": "25600",
+            "buttons": "8",
+            "weight": "80g",
+            "battery_life": "60 hours"
+        },
+        "rating": 4.9,
+        "reviews": 1345
+    },
+    {
+        "name": "QN90B Neo QLED 65-inch TV",
+        "brand": "Samsung",
+        "model": "QN65QN90BAFXZA",
+        "category": "tv",
+        "price": 1999.99,
+        "specs": {
+            "screen_size": "65 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "144Hz",
+            "smart_platform": "Tizen",
+            "hdr": "Quantum HDR 32x"
+        },
+        "rating": 4.8,
+        "reviews": 987
+    },
+    {
+        "name": "Galaxy S23 Ultra",
+        "brand": "Samsung",
+        "model": "SM-S918U",
+        "category": "phone",
+        "price": 1199.99,
+        "specs": {
+            "screen_size": "6.8 inches",
+            "resolution": "3088 x 1440",
+            "storage": "256GB",
+            "ram": "12GB",
+            "processor": "Snapdragon 8 Gen 2",
+            "camera": "Quad 200MP+12MP+10MP+10MP"
+        },
+        "rating": 4.7,
+        "reviews": 1876
+    },
+    {
+        "name": "ProArt 32-inch 4K Monitor",
+        "brand": "ASUS",
+        "model": "PA329CV",
+        "category": "monitor",
+        "price": 899.99,
+        "specs": {
+            "screen_size": "32 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "60Hz",
+            "response_time": "5ms",
+            "panel_type": "IPS",
+            "color_accuracy": "ΔE < 2"
+        },
+        "rating": 4.6,
+        "reviews": 234
+    },
+    {
+        "name": "MX Keys Wireless Keyboard",
+        "brand": "Logitech",
+        "model": "920-009559",
+        "category": "keyboard",
+        "price": 99.99,
+        "specs": {
+            "type": "Wireless",
+            "layout": "QWERTY",
+            "backlight": "Yes",
+            "battery_life": "10 days",
+            "connectivity": "Bluetooth/Unifying Receiver"
+        },
+        "rating": 4.7,
+        "reviews": 654
+    },
+    {
+        "name": "Basilisk V3 Gaming Mouse",
+        "brand": "Razer",
+        "model": "RZ01-03850100-R3U1",
+        "category": "mouse",
+        "price": 69.99,
+        "specs": {
+            "type": "Wired",
+            "dpi": "26000",
+            "buttons": "11",
+            "weight": "101g",
+            "lighting": "RGB"
+        },
+        "rating": 4.5,
+        "reviews": 432
+    },
+    {
+        "name": "A80K 55-inch OLED TV",
+        "brand": "Sony",
+        "model": "XR-55A80K",
+        "category": "tv",
+        "price": 1599.99,
+        "specs": {
+            "screen_size": "55 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "120Hz",
+            "smart_platform": "Google TV",
+            "hdr": "Dolby Vision, HDR10"
+        },
+        "rating": 4.8,
+        "reviews": 765
+    },
+    {
+        "name": "Pixel 7 Pro",
+        "brand": "Google",
+        "model": "GA03450-US",
+        "category": "phone",
+        "price": 899.00,
+        "specs": {
+            "screen_size": "6.7 inches",
+            "resolution": "3120 x 1440",
+            "storage": "128GB",
+            "ram": "12GB",
+            "processor": "Google Tensor G2",
+            "camera": "Triple 50MP+12MP+48MP"
+        },
+        "rating": 4.6,
+        "reviews": 1243
+    },
+    {
+        "name": "Curved Gaming Monitor 34-inch",
+        "brand": "Samsung",
+        "model": "LC34G55TWWNXZA",
+        "category": "monitor",
+        "price": 499.99,
+        "specs": {
+            "screen_size": "34 inches",
+            "resolution": "3440 x 1440 (UWQHD)",
+            "refresh_rate": "165Hz",
+            "response_time": "1ms",
+            "panel_type": "VA",
+            "curvature": "1000R"
+        },
+        "rating": 4.4,
+        "reviews": 321
+    },
+    {
+        "name": "K95 RGB Platinum Keyboard",
+        "brand": "Corsair",
+        "model": "CH-9127014-NA",
+        "category": "keyboard",
+        "price": 199.99,
+        "specs": {
+            "type": "Wired",
+            "layout": "QWERTY",
+            "switches": "Cherry MX Speed",
+            "backlight": "RGB",
+            "macro_keys": "6"
+        },
+        "rating": 4.7,
+        "reviews": 543
+    },
+    {
+        "name": "G502 Hero Gaming Mouse",
+        "brand": "Logitech",
+        "model": "910-005514",
+        "category": "mouse",
+        "price": 79.99,
+        "specs": {
+            "type": "Wired",
+            "dpi": "25600",
+            "buttons": "11",
+            "weight": "121g",
+            "lighting": "RGB"
+        },
+        "rating": 4.8,
+        "reviews": 2109
+    },
+    {
+        "name": "U8H 75-inch 4K TV",
+        "brand": "Hisense",
+        "model": "75U8H",
+        "category": "tv",
+        "price": 1499.99,
+        "specs": {
+            "screen_size": "75 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "120Hz",
+            "smart_platform": "Google TV",
+            "hdr": "Dolby Vision, HDR10+"
+        },
+        "rating": 4.5,
+        "reviews": 456
+    },
+    {
+        "name": "OnePlus 11 5G",
+        "brand": "OnePlus",
+        "model": "CPH2449",
+        "category": "phone",
+        "price": 799.00,
+        "specs": {
+            "screen_size": "6.7 inches",
+            "resolution": "3216 x 1440",
+            "storage": "256GB",
+            "ram": "16GB",
+            "processor": "Snapdragon 8 Gen 2",
+            "camera": "Triple 50MP+48MP+32MP"
+        },
+        "rating": 4.6,
+        "reviews": 876
+    },
+    {
+        "name": "27-inch 5K Monitor",
+        "brand": "Apple",
+        "model": "MK0U3LL/A",
+        "category": "monitor",
+        "price": 1299.00,
+        "specs": {
+            "screen_size": "27 inches",
+            "resolution": "5120 x 2880",
+            "refresh_rate": "60Hz",
+            "response_time": "14ms",
+            "panel_type": "IPS",
+            "ports": "Thunderbolt 3"
+        },
+        "rating": 4.4,
+        "reviews": 189
+    },
+    {
+        "name": "Keychron K2 Wireless Keyboard",
+        "brand": "Keychron",
+        "model": "K2-V2",
+        "category": "keyboard",
+        "price": 79.99,
+        "specs": {
+            "type": "Wireless/Wired",
+            "layout": "75% QWERTY",
+            "switches": "Gateron (Red/Brown/Blue)",
+            "backlight": "RGB",
+            "battery_life": "Up to 3 weeks"
+        },
+        "rating": 4.7,
+        "reviews": 765
+    },
+    {
+        "name": "Viper Mini Gaming Mouse",
+        "brand": "Razer",
+        "model": "RZ01-03250100-R3U1",
+        "category": "mouse",
+        "price": 39.99,
+        "specs": {
+            "type": "Wired",
+            "dpi": "8500",
+            "buttons": "6",
+            "weight": "61g",
+            "lighting": "RGB"
+        },
+        "rating": 4.6,
+        "reviews": 987
+    },
+    {
+        "name": "The Frame 65-inch QLED TV",
+        "brand": "Samsung",
+        "model": "QN65LS03BAFXZA",
+        "category": "tv",
+        "price": 1999.99,
+        "specs": {
+            "screen_size": "65 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "60Hz",
+            "smart_platform": "Tizen",
+            "art_mode": "Yes"
+        },
+        "rating": 4.5,
+        "reviews": 543
+    },
+    {
+        "name": "ROG Phone 7 Ultimate",
+        "brand": "ASUS",
+        "model": "AI2203",
+        "category": "phone",
+        "price": 1299.99,
+        "specs": {
+            "screen_size": "6.78 inches",
+            "resolution": "2448 x 1080",
+            "refresh_rate": "165Hz",
+            "storage": "512GB",
+            "ram": "16GB",
+            "processor": "Snapdragon 8 Gen 2"
+        },
+        "rating": 4.7,
+        "reviews": 321
+    },
+    {
+        "name": "27GL850-B Gaming Monitor",
+        "brand": "LG",
+        "model": "27GL850-B",
+        "category": "monitor",
+        "price": 449.99,
+        "specs": {
+            "screen_size": "27 inches",
+            "resolution": "2560 x 1440 (QHD)",
+            "refresh_rate": "144Hz",
+            "response_time": "1ms",
+            "panel_type": "Nano IPS"
+        },
+        "rating": 4.7,
+        "reviews": 654
+    },
+    {
+        "name": "MX Mechanical Wireless Keyboard",
+        "brand": "Logitech",
+        "model": "920-011559",
+        "category": "keyboard",
+        "price": 169.99,
+        "specs": {
+            "type": "Wireless",
+            "layout": "Full-size QWERTY",
+            "switches": "Tactile Quiet",
+            "backlight": "White",
+            "battery_life": "15 days"
+        },
+        "rating": 4.6,
+        "reviews": 432
+    },
+    {
+        "name": "Model O Wireless Gaming Mouse",
+        "brand": "Glorious",
+        "model": "GMO-61W",
+        "category": "mouse",
+        "price": 79.99,
+        "specs": {
+            "type": "Wireless",
+            "dpi": "19000",
+            "buttons": "6",
+            "weight": "69g",
+            "battery_life": "71 hours"
+        },
+        "rating": 4.8,
+        "reviews": 765
+    },
+    {
+        "name": "X90K 75-inch 4K TV",
+        "brand": "Sony",
+        "model": "XR-75X90K",
+        "category": "tv",
+        "price": 1799.99,
+        "specs": {
+            "screen_size": "75 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "120Hz",
+            "smart_platform": "Google TV",
+            "hdr": "Dolby Vision, HDR10"
+        },
+        "rating": 4.7,
+        "reviews": 543
+    },
+    {
+        "name": "Xiaomi 13 Pro",
+        "brand": "Xiaomi",
+        "model": "2210132G",
+        "category": "phone",
+        "price": 999.00,
+        "specs": {
+            "screen_size": "6.73 inches",
+            "resolution": "3200 x 1440",
+            "storage": "256GB",
+            "ram": "12GB",
+            "processor": "Snapdragon 8 Gen 2",
+            "camera": "Triple 50.3MP+50MP+50MP"
+        },
+        "rating": 4.5,
+        "reviews": 321
+    },
+    {
+        "name": "Predator X38 Gaming Monitor",
+        "brand": "Acer",
+        "model": "X38 Sbmiiiphuzx",
+        "category": "monitor",
+        "price": 1799.99,
+        "specs": {
+            "screen_size": "37.5 inches",
+            "resolution": "3840 x 1600 (UWQHD+)",
+            "refresh_rate": "175Hz",
+            "response_time": "1ms",
+            "panel_type": "IPS"
+        },
+        "rating": 4.7,
+        "reviews": 189
+    },
+    {
+        "name": "Ducky One 3 Keyboard",
+        "brand": "Ducky",
+        "model": "DKON1967ST",
+        "category": "keyboard",
+        "price": 109.00,
+        "specs": {
+            "type": "Wired",
+            "layout": "Full-size QWERTY",
+            "switches": "Cherry MX (Various)",
+            "backlight": "RGB",
+            "keycaps": "PBT Double-shot"
+        },
+        "rating": 4.8,
+        "reviews": 432
+    },
+    {
+        "name": "DeathAdder V2 Pro Wireless Mouse",
+        "brand": "Razer",
+        "model": "RZ01-03210100-R3U1",
+        "category": "mouse",
+        "price": 129.99,
+        "specs": {
+            "type": "Wireless",
+            "dpi": "20000",
+            "buttons": "8",
+            "weight": "88g",
+            "battery_life": "70 hours"
+        },
+        "rating": 4.7,
+        "reviews": 654
+    },
+    {
+        "name": "C2 Series 42-inch OLED TV",
+        "brand": "LG",
+        "model": "OLED42C2PUA",
+        "category": "tv",
+        "price": 1099.99,
+        "specs": {
+            "screen_size": "42 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "120Hz",
+            "smart_platform": "webOS",
+            "hdr": "Dolby Vision, HDR10"
+        },
+        "rating": 4.8,
+        "reviews": 765
+    },
+    {
+        "name": "Nothing Phone (2)",
+        "brand": "Nothing",
+        "model": "A065",
+        "category": "phone",
+        "price": 599.00,
+        "specs": {
+            "screen_size": "6.7 inches",
+            "resolution": "2412 x 1080",
+            "storage": "256GB",
+            "ram": "12GB",
+            "processor": "Snapdragon 8+ Gen 1",
+            "camera": "Dual 50MP+50MP"
+        },
+        "rating": 4.4,
+        "reviews": 543
+    },
+    {
+        "name": "32-inch 4K HDR Monitor",
+        "brand": "BenQ",
+        "model": "EW3270U",
+        "category": "monitor",
+        "price": 499.99,
+        "specs": {
+            "screen_size": "32 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "60Hz",
+            "response_time": "4ms",
+            "panel_type": "VA",
+            "hdr": "HDR10"
+        },
+        "rating": 4.5,
+        "reviews": 321
+    },
+    {
+        "name": "NuPhy Air75 Wireless Keyboard",
+        "brand": "NuPhy",
+        "model": "NP75",
+        "category": "keyboard",
+        "price": 109.00,
+        "specs": {
+            "type": "Wireless",
+            "layout": "75% QWERTY",
+            "switches": "Gateron (Low-profile)",
+            "backlight": "RGB",
+            "battery_life": "48 hours"
+        },
+        "rating": 4.6,
+        "reviews": 210
+    },
+    {
+        "name": "Pulsar X2 Wireless Mouse",
+        "brand": "Pulsar",
+        "model": "PX2W-01",
+        "category": "mouse",
+        "price": 99.99,
+        "specs": {
+            "type": "Wireless",
+            "dpi": "26000",
+            "buttons": "5",
+            "weight": "56g",
+            "battery_life": "70 hours"
+        },
+        "rating": 4.7,
+        "reviews": 189
+    },
+    {
+        "name": "Q7 Series 55-inch QLED TV",
+        "brand": "TCL",
+        "model": "55Q750G",
+        "category": "tv",
+        "price": 699.99,
+        "specs": {
+            "screen_size": "55 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "120Hz",
+            "smart_platform": "Google TV",
+            "hdr": "Dolby Vision, HDR10+"
+        },
+        "rating": 4.4,
+        "reviews": 432
+    },
+    {
+        "name": "ZenFone 10",
+        "brand": "ASUS",
+        "model": "AI2302",
+        "category": "phone",
+        "price": 799.00,
+        "specs": {
+            "screen_size": "5.92 inches",
+            "resolution": "2400 x 1080",
+            "storage": "256GB",
+            "ram": "8GB",
+            "processor": "Snapdragon 8 Gen 2",
+            "camera": "Dual 50MP+13MP"
+        },
+        "rating": 4.5,
+        "reviews": 321
+    },
+    {
+        "name": "Pro Display XDR 32-inch",
+        "brand": "Apple",
+        "model": "MYYM2LL/A",
+        "category": "monitor",
+        "price": 4999.00,
+        "specs": {
+            "screen_size": "32 inches",
+            "resolution": "6016 x 3384 (6K)",
+            "brightness": "1600 nits",
+            "contrast": "1,000,000:1",
+            "ports": "Thunderbolt 3"
+        },
+        "rating": 4.6,
+        "reviews": 87
+    },
+    {
+        "name": "Ergo K860 Wireless Keyboard",
+        "brand": "Logitech",
+        "model": "920-009160",
+        "category": "keyboard",
+        "price": 129.99,
+        "specs": {
+            "type": "Wireless",
+            "layout": "Split QWERTY",
+            "backlight": "No",
+            "ergonomic": "Yes",
+            "battery_life": "24 months"
+        },
+        "rating": 4.5,
+        "reviews": 321
+    },
+    {
+        "name": "Aerox 5 Wireless Mouse",
+        "brand": "SteelSeries",
+        "model": "64751",
+        "category": "mouse",
+        "price": 119.99,
+        "specs": {
+            "type": "Wireless",
+            "dpi": "18000",
+            "buttons": "9",
+            "weight": "74g",
+            "battery_life": "180 hours"
+        },
+        "rating": 4.7,
+        "reviews": 210
+    },
+    {
+        "name": "U8G 65-inch 4K TV",
+        "brand": "Hisense",
+        "model": "65U8G",
+        "category": "tv",
+        "price": 1299.99,
+        "specs": {
+            "screen_size": "65 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "120Hz",
+            "smart_platform": "Android TV",
+            "hdr": "Dolby Vision, HDR10+"
+        },
+        "rating": 4.5,
+        "reviews": 543
+    },
+    {
+        "name": "RedMagic 8 Pro",
+        "brand": "Nubia",
+        "model": "NX729J",
+        "category": "phone",
+        "price": 799.99,
+        "specs": {
+            "screen_size": "6.8 inches",
+            "resolution": "2480 x 1116",
+            "refresh_rate": "120Hz",
+            "storage": "256GB",
+            "ram": "12GB",
+            "processor": "Snapdragon 8 Gen 2"
+        },
+        "rating": 4.6,
+        "reviews": 432
+    },
+    {
+        "name": "Odyssey Neo G8 32-inch",
+        "brand": "Samsung",
+        "model": "LS32BG852NNXGO",
+        "category": "monitor",
+        "price": 1499.99,
+        "specs": {
+            "screen_size": "32 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "240Hz",
+            "response_time": "1ms",
+            "panel_type": "VA",
+            "curvature": "1000R"
+        },
+        "rating": 4.7,
+        "reviews": 189
+    },
+    {
+        "name": "K70 RGB TKL Keyboard",
+        "brand": "Corsair",
+        "model": "CH-9119014-NA",
+        "category": "keyboard",
+        "price": 159.99,
+        "specs": {
+            "type": "Wired",
+            "layout": "Tenkeyless QWERTY",
+            "switches": "Cherry MX Speed",
+            "backlight": "RGB",
+            "frame": "Aluminum"
+        },
+        "rating": 4.8,
+        "reviews": 543
+    },
+    {
+        "name": "Model D Wireless Mouse",
+        "brand": "Glorious",
+        "model": "GMD-61W",
+        "category": "mouse",
+        "price": 79.99,
+        "specs": {
+            "type": "Wireless",
+            "dpi": "19000",
+            "buttons": "6",
+            "weight": "69g",
+            "shape": "Ergonomic"
+        },
+        "rating": 4.7,
+        "reviews": 321
+    },
+    {
+        "name": "X95K 85-inch 4K TV",
+        "brand": "Sony",
+        "model": "XR-85X95K",
+        "category": "tv",
+        "price": 4499.99,
+        "specs": {
+            "screen_size": "85 inches",
+            "resolution": "3840 x 2160 (4K UHD)",
+            "refresh_rate": "120Hz",
+            "smart_platform": "Google TV",
+            "hdr": "Dolby Vision, HDR10"
+        },
+        "rating": 4.8,
+        "reviews": 210
+    },
+    {
+        "name": "ROG Phone 6D Ultimate",
+        "brand": "ASUS",
+        "model": "AI2201",
+        "category": "phone",
+        "price": 1399.99,
+        "specs": {
+            "screen_size": "6.78 inches",
+            "resolution": "2448 x 1080",
+            "refresh_rate": "165Hz",
+            "storage": "512GB",
+            "ram": "16GB",
+            "processor": "Dimensity 9000+"
+        },
+        "rating": 4.7,
+        "reviews": 189
+    },
+    {
+      "name": "MacBook Pro 14-inch (M3 Pro)",
+      "brand": "Apple",
+      "model": "Mac14,8",
+      "category": "laptop",
+      "price": 1999.00,
+      "specs": {
+        "screen_size": "14.2 inches",
+        "resolution": "3024 x 1964",
+        "processor": "Apple M3 Pro (12-core)",
+        "ram": "18GB",
+        "storage": "512GB SSD",
+        "gpu": "18-core GPU",
+        "battery_life": "18 hours"
+      },
+      "rating": 4.8,
+      "reviews": 845
+    },
+    {
+      "name": "ROG Strix G16 Gaming Laptop",
+      "brand": "ASUS",
+      "model": "G614JV-AS73",
+      "category": "laptop",
+      "price": 1599.99,
+      "specs": {
+        "screen_size": "16 inches",
+        "resolution": "2560 x 1600 (QHD+)",
+        "processor": "Intel Core i9-13980HX",
+        "ram": "32GB DDR5",
+        "storage": "1TB SSD",
+        "gpu": "NVIDIA RTX 4070 (8GB)",
+        "refresh_rate": "240Hz"
+      },
+      "rating": 4.6,
+      "reviews": 632
+    },
+    {
+      "name": "RTX 4090 Founders Edition",
+      "brand": "NVIDIA",
+      "model": "GN21-X11",
+      "category": "graphics_card",
+      "price": 1599.99,
+      "specs": {
+        "vram": "24GB GDDR6X",
+        "cuda_cores": "16384",
+        "base_clock": "2235 MHz",
+        "boost_clock": "2520 MHz",
+        "power_consumption": "450W",
+        "ports": "HDMI 2.1, 3x DisplayPort 1.4a"
+      },
+      "rating": 4.9,
+      "reviews": 1204
+    },
+    {
+      "name": "Radeon RX 7900 XT",
+      "brand": "AMD",
+      "model": "11323-01-20G",
+      "category": "graphics_card",
+      "price": 899.99,
+      "specs": {
+        "vram": "20GB GDDR6",
+        "stream_processors": "5376",
+        "base_clock": "1500 MHz",
+        "boost_clock": "2394 MHz",
+        "power_consumption": "300W",
+        "ports": "2x HDMI 2.1, 2x DisplayPort 2.1"
+      },
+      "rating": 4.7,
+      "reviews": 756
+    },
+    {
+      "name": "Blue Yeti USB Microphone",
+      "brand": "Blue",
+      "model": "Yeti",
+      "category": "microphone",
+      "price": 129.99,
+      "specs": {
+        "type": "Condenser",
+        "polar_patterns": "Cardioid, Omnidirectional, Bidirectional, Stereo",
+        "sample_rate": "48 kHz",
+        "connectivity": "USB",
+        "features": "Gain control, mute button, headphone output"
+      },
+      "rating": 4.7,
+      "reviews": 9843
+    },
+    {
+      "name": "HyperX QuadCast S",
+      "brand": "HyperX",
+      "model": "HMIQ1S-XX-RD/G",
+      "category": "microphone",
+      "price": 159.99,
+      "specs": {
+        "type": "Condenser",
+        "polar_pattern": "Cardioid",
+        "sample_rate": "48 kHz",
+        "connectivity": "USB",
+        "features": "RGB lighting, anti-vibration shock mount, tap-to-mute"
+      },
+      "rating": 4.8,
+      "reviews": 5231
+    },
+    {
+      "name": "Secretlab Titan Evo 2023",
+      "brand": "Secretlab",
+      "model": "SL-TITAN-EVO-22",
+      "category": "gaming_chair",
+      "price": 549.00,
+      "specs": {
+        "material": "Premium PU Leather",
+        "weight_capacity": "395 lbs",
+        "adjustments": "4D armrests, reclining (85°-165°)",
+        "lumbar_support": "Magnetic adjustable",
+        "warranty": "5 years"
+      },
+      "rating": 4.9,
+      "reviews": 4321
+    },
+    {
+      "name": "Razer Iskur X",
+      "brand": "Razer",
+      "model": "RZ38-03580100-R3U1",
+      "category": "gaming_chair",
+      "price": 399.99,
+      "specs": {
+        "material": "PVC Leather",
+        "weight_capacity": "299 lbs",
+        "adjustments": "Reclining (152°)",
+        "lumbar_support": "Built-in",
+        "warranty": "3 years"
+      },
+      "rating": 4.6,
+      "reviews": 2876
+    },
+    {
+      "name": "Intel Core i9-14900K",
+      "brand": "Intel",
+      "model": "BX8071514900K",
+      "category": "cpu",
+      "price": 599.99,
+      "specs": {
+        "cores": "24 (8P + 16E)",
+        "threads": "32",
+        "base_clock": "3.2 GHz",
+        "boost_clock": "6.0 GHz",
+        "tdp": "125W",
+        "socket": "LGA1700"
+      },
+      "rating": 4.8,
+      "reviews": 1243
+    },
+    {
+      "name": "AMD Ryzen 9 7950X3D",
+      "brand": "AMD",
+      "model": "100-100000908WOF",
+      "category": "cpu",
+      "price": 699.00,
+      "specs": {
+        "cores": "16",
+        "threads": "32",
+        "base_clock": "4.2 GHz",
+        "boost_clock": "5.7 GHz",
+        "tdp": "120W",
+        "socket": "AM5",
+        "cache": "144MB (L2+L3+3D V-Cache)"
+      },
+      "rating": 4.9,
+      "reviews": 987
+    },
+    {
+      "name": "Samsung 990 Pro 2TB SSD",
+      "brand": "Samsung",
+      "model": "MZ-V9P2T0BW",
+      "category": "ssd",
+      "price": 179.99,
+      "specs": {
+        "capacity": "2TB",
+        "interface": "PCIe 4.0 NVMe",
+        "read_speed": "7450 MB/s",
+        "write_speed": "6900 MB/s",
+        "endurance": "1200 TBW",
+        "form_factor": "M.2 2280"
+      },
+      "rating": 4.9,
+      "reviews": 4321
+    },
+    {
+      "name": "WD Black SN850X 1TB",
+      "brand": "Western Digital",
+      "model": "WDS100T2X0E",
+      "category": "ssd",
+      "price": 99.99,
+      "specs": {
+        "capacity": "1TB",
+        "interface": "PCIe 4.0 NVMe",
+        "read_speed": "7300 MB/s",
+        "write_speed": "6300 MB/s",
+        "endurance": "600 TBW"
+      },
+      "rating": 4.8,
+      "reviews": 3210
+    },
+    {
+      "name": "ASUS ROG Rapture GT-AX11000",
+      "brand": "ASUS",
+      "model": "GT-AX11000",
+      "category": "router",
+      "price": 449.99,
+      "specs": {
+        "wifi_speed": "11000 Mbps (Tri-band)",
+        "ports": "1x 2.5G WAN, 4x Gigabit LAN, 2x USB 3.2",
+        "processor": "Quad-core 1.8 GHz",
+        "security": "WPA3, AiProtection Pro",
+        "features": "Gaming acceleration, VPN support"
+      },
+      "rating": 4.7,
+      "reviews": 876
+    },
+    {
+      "name": "TP-Link Archer AX6000",
+      "brand": "TP-Link",
+      "model": "Archer AX6000",
+      "category": "router",
+      "price": 249.99,
+      "specs": {
+        "wifi_speed": "6000 Mbps (Dual-band)",
+        "ports": "1x 2.5G WAN, 8x Gigabit LAN, 2x USB 3.0",
+        "processor": "Dual-core 1.8 GHz",
+        "security": "WPA3, HomeCare"
+      },
+      "rating": 4.6,
+      "reviews": 1543
+    },
+    {
+      "name": "Elgato Stream Deck XL",
+      "brand": "Elgato",
+      "model": "10GAA9901",
+      "category": "streaming_gear",
+      "price": 249.99,
+      "specs": {
+        "buttons": "32 LCD keys",
+        "software": "Stream Deck app",
+        "compatibility": "Windows 10+, macOS 10.15+",
+        "features": "Custom icons, multi-action support"
+      },
+      "rating": 4.8,
+      "reviews": 2109
+    },
+    {
+      "name": "GoXLR Mini Mixer",
+      "brand": "TC-Helicon",
+      "model": "GOXLRMINI",
+      "category": "streaming_gear",
+      "price": 229.99,
+      "specs": {
+        "channels": "4 (Mic, Game, Chat, System)",
+        "effects": "Reverb, Echo, Pitch",
+        "connectivity": "USB",
+        "features": "Soundboard, voice modulation"
+      },
+      "rating": 4.7,
+      "reviews": 1876
+    },
+    {
+      "name": "Corsair iCUE H150i Elite Capellix",
+      "brand": "Corsair",
+      "model": "CW-9060048-WW",
+      "category": "cooling",
+      "price": 189.99,
+      "specs": {
+        "type": "Liquid CPU Cooler",
+        "radiator_size": "360mm",
+        "fans": "3x ML120 RGB",
+        "compatibility": "Intel LGA1700, AMD AM5",
+        "rgb": "iCUE software control"
+      },
+      "rating": 4.8,
+      "reviews": 3210
+    },
+    {
+      "name": "Noctua NH-D15 Chromax Black",
+      "brand": "Noctua",
+      "model": "NH-D15 chromax.black",
+      "category": "cooling",
+      "price": 109.95,
+      "specs": {
+        "type": "Air CPU Cooler",
+        "heat_pipes": "6",
+        "fans": "2x NF-A15 PWM",
+        "height": "165mm",
+        "compatibility": "Intel LGA1700, AMD AM5"
+      },
+      "rating": 4.9,
+      "reviews": 4321
+    },
+    {
+      "name": "Logitech C920x Pro Webcam",
+      "brand": "Logitech",
+      "model": "960-001269",
+      "category": "webcam",
+      "price": 69.99,
+      "specs": {
+        "resolution": "1080p @ 30fps",
+        "lens": "Auto-focus",
+        "microphone": "Dual stereo",
+        "connectivity": "USB 2.0",
+        "features": "Light correction, privacy shutter"
+      },
+      "rating": 4.7,
+      "reviews": 9876
+    },
+    {
+      "name": "Razer Kiyo Pro Ultra",
+      "brand": "Razer",
+      "model": "RZ19-03550100-R3U1",
+      "category": "webcam",
+      "price": 299.99,
+      "specs": {
+        "resolution": "4K @ 30fps / 1080p @ 60fps",
+        "sensor": "Sony Starvis",
+        "aperture": "f/1.7",
+        "connectivity": "USB 3.0",
+        "features": "HDR, adaptive light sensor"
+      },
+      "rating": 4.6,
+      "reviews": 543
+    },
+    {
+      "name": "SteelSeries Arctis Nova Pro Wireless",
+      "brand": "SteelSeries",
+      "model": "61505",
+      "category": "headset",
+      "price": 349.99,
+      "specs": {
+        "type": "Wireless (2.4GHz + Bluetooth)",
+        "drivers": "40mm",
+        "microphone": "Retractable noise-canceling",
+        "battery_life": "22+ hours",
+        "features": "Dual connectivity, ANC"
+      },
+      "rating": 4.8,
+      "reviews": 2109
+    },
+    {
+      "name": "HyperX Cloud Alpha Wireless",
+      "brand": "HyperX",
+      "model": "HX-HSCAW-RD",
+      "category": "headset",
+      "price": 199.99,
+      "specs": {
+        "type": "Wireless (2.4GHz)",
+        "drivers": "Dual-chamber 50mm",
+        "microphone": "Detachable noise-canceling",
+        "battery_life": "300 hours",
+        "compatibility": "PC, PS5, PS4"
+      },
+      "rating": 4.7,
+      "reviews": 1876
+    },
+    {
+      "name": "Elgato Key Light Air",
+      "brand": "Elgato",
+      "model": "10LUA9901",
+      "category": "lighting",
+      "price": 129.99,
+      "specs": {
+        "brightness": "1400 lumens",
+        "color_temp": "2900K-7000K",
+        "control": "Wi-Fi (via Elgato app)",
+        "mounting": "Desk clamp",
+        "power": "USB-C"
+      },
+      "rating": 4.7,
+      "reviews": 876
+    },
+    {
+      "name": "Nanoleaf Shapes Hexagon Smarter Kit",
+      "brand": "Nanoleaf",
+      "model": "NL45-0800WH9",
+      "category": "lighting",
+      "price": 199.99,
+      "specs": {
+        "panels": "7 Hexagon panels",
+        "colors": "16 million",
+        "control": "Wi-Fi, Alexa, Google Assistant",
+        "features": "Rhythm music sync, touch control"
+      },
+      "rating": 4.6,
+      "reviews": 543
+    },
+    {
+      "name": "Anker 737 Power Bank (140W)",
+      "brand": "Anker",
+      "model": "A1289",
+      "category": "accessories",
+      "price": 159.99,
+      "specs": {
+        "capacity": "24000mAh",
+        "output": "140W (USB-C PD 3.1)",
+        "ports": "2x USB-C, 1x USB-A",
+        "charging": "0-100% in 50 min (self-charge)"
+      },
+      "rating": 4.8,
+      "reviews": 2109
+    },
+    {
+      "name": "Logitech MX Master 3S",
+      "brand": "Logitech",
+      "model": "910-006105",
+      "category": "mouse",
+      "price": 99.99,
+      "specs": {
+        "type": "Wireless",
+        "dpi": "8000",
+        "buttons": "7",
+        "battery_life": "70 days",
+        "connectivity": "Bluetooth/Unifying Receiver"
+      },
+      "rating": 4.8,
+      "reviews": 4321
+    },
+    {
+      "name": "Keychron Q3 Custom Mechanical Keyboard",
+      "brand": "Keychron",
+      "model": "Q3",
+      "category": "keyboard",
+      "price": 149.00,
+      "specs": {
+        "type": "Wired",
+        "layout": "TKL (Tenkeyless)",
+        "switches": "Gateron G Pro (Red/Brown/Blue)",
+        "frame": "Aluminum",
+        "keycaps": "Double-shot PBT"
+      },
+      "rating": 4.7,
+      "reviews": 876
+    },
+    {
+      "name": "LG UltraFine 32-inch 4K Monitor",
+      "brand": "LG",
+      "model": "32UN880-B",
+      "category": "monitor",
+      "price": 699.99,
+      "specs": {
+        "screen_size": "32 inches",
+        "resolution": "3840 x 2160 (4K UHD)",
+        "refresh_rate": "60Hz",
+        "response_time": "5ms",
+        "panel_type": "IPS",
+        "ergonomics": "Ergo stand (adjustable)"
+      },
+      "rating": 4.7,
+      "reviews": 543
+    },
+    {
+      "name": "Sony WH-1000XM5 Wireless Headphones",
+      "brand": "Sony",
+      "model": "WH-1000XM5",
+      "category": "headphones",
+      "price": 399.99,
+      "specs": {
+        "type": "Wireless (Bluetooth 5.2)",
+        "noise_canceling": "Yes (Adaptive ANC)",
+        "battery_life": "30 hours",
+        "features": "Touch controls, LDAC support"
+      },
+      "rating": 4.9,
+      "reviews": 9876
+    },
+    {
+      "name": "Bose QuietComfort Ultra Earbuds",
+      "brand": "Bose",
+      "model": "843385-0100",
+      "category": "earbuds",
+      "price": 299.00,
+      "specs": {
+        "type": "True Wireless",
+        "noise_canceling": "Yes (Adaptive ANC)",
+        "battery_life": "6 hours (24 with case)",
+        "water_resistance": "IPX4"
+      },
+      "rating": 4.7,
+      "reviews": 4321
+    },
+    {
+      "name": "Dell XPS 15 (2023)",
+      "brand": "Dell",
+      "model": "XPS 15 9530",
+      "category": "laptop",
+      "price": 1999.99,
+      "specs": {
+        "screen_size": "15.6 inches",
+        "resolution": "3840 x 2400 (UHD+)",
+        "processor": "Intel Core i9-13900H",
+        "ram": "32GB DDR5",
+        "storage": "1TB SSD",
+        "gpu": "NVIDIA RTX 4070"
+      },
+      "rating": 4.7,
+      "reviews": 765
+    },
+    {
+      "name": "Lenovo Legion Pro 7i",
+      "brand": "Lenovo",
+      "model": "16IRX8",
+      "category": "laptop",
+      "price": 2299.99,
+      "specs": {
+        "screen_size": "16 inches",
+        "resolution": "2560 x 1600 (QHD+)",
+        "processor": "Intel Core i9-13900HX",
+        "ram": "32GB DDR5",
+        "storage": "1TB SSD",
+        "gpu": "NVIDIA RTX 4080 (12GB)",
+        "refresh_rate": "240Hz"
+      },
+      "rating": 4.8,
+      "reviews": 432
+    },
+    {
+      "name": "RTX 4080 Super",
+      "brand": "NVIDIA",
+      "model": "GN21-X9",
+      "category": "graphics_card",
+      "price": 999.99,
+      "specs": {
+        "vram": "16GB GDDR6X",
+        "cuda_cores": "10240",
+        "base_clock": "2295 MHz",
+        "boost_clock": "2550 MHz",
+        "power_consumption": "320W"
+      },
+      "rating": 4.7,
+      "reviews": 543
+    },
+    {
+      "name": "Radeon RX 7800 XT",
+      "brand": "AMD",
+      "model": "11330-01-20G",
+      "category": "graphics_card",
+      "price": 499.99,
+      "specs": {
+        "vram": "16GB GDDR6",
+        "stream_processors": "3840",
+        "base_clock": "1295 MHz",
+        "boost_clock": "2430 MHz"
+      },
+      "rating": 4.6,
+      "reviews": 321
+    },
+    {
+      "name": "Shure SM7B Vocal Microphone",
+      "brand": "Shure",
+      "model": "SM7B",
+      "category": "microphone",
+      "price": 399.00,
+      "specs": {
+        "type": "Dynamic",
+        "polar_pattern": "Cardioid",
+        "frequency_response": "50Hz-20kHz",
+        "connectivity": "XLR",
+        "features": "Built-in pop filter"
+      },
+      "rating": 4.9,
+      "reviews": 6543
+    },
+    {
+      "name": "Rode NT-USB+",
+      "brand": "Rode",
+      "model": "NT-USB+",
+      "category": "microphone",
+      "price": 199.00,
+      "specs": {
+        "type": "Condenser",
+        "polar_pattern": "Cardioid",
+        "sample_rate": "48 kHz",
+        "connectivity": "USB",
+        "features": "Onboard DSP, APHEX processing"
+      },
+      "rating": 4.8,
+      "reviews": 3210
+    },
+    {
+      "name": "Herman Miller Aeron Chair",
+      "brand": "Herman Miller",
+      "model": "AERON",
+      "category": "office_chair",
+      "price": 1495.00,
+      "specs": {
+        "material": "Mesh",
+        "weight_capacity": "350 lbs",
+        "adjustments": "PostureFit SL, tilt limiter",
+        "warranty": "12 years"
+      },
+      "rating": 4.9,
+      "reviews": 4321
+    },
+    {
+      "name": "Noblechairs Hero",
+      "brand": "Noblechairs",
+      "model": "HERO-BLK",
+      "category": "gaming_chair",
+      "price": 449.00,
+      "specs": {
+        "material": "PU Leather",
+        "weight_capacity": "330 lbs",
+        "adjustments": "4D armrests, reclining (90°-135°)",
+        "lumbar_support": "Memory foam pillow"
+      },
+      "rating": 4.7,
+      "reviews": 876
+    },
+    {
+      "name": "Intel Core i7-14700K",
+      "brand": "Intel",
+      "model": "BX8071514700K",
+      "category": "cpu",
+      "price": 419.99,
+      "specs": {
+        "cores": "20 (8P + 12E)",
+        "threads": "28",
+        "base_clock": "3.4 GHz",
+        "boost_clock": "5.6 GHz",
+        "tdp": "125W"
+      },
+      "rating": 4.7,
+      "reviews": 543
+    },
+    {
+      "name": "AMD Ryzen 7 7800X3D",
+      "brand": "AMD",
+      "model": "100-100000910WOF",
+      "category": "cpu",
+      "price": 449.00,
+      "specs": {
+        "cores": "8",
+        "threads": "16",
+        "base_clock": "4.2 GHz",
+        "boost_clock": "5.0 GHz",
+        "cache": "96MB (L2+L3+3D V-Cache)"
+      },
+      "rating": 4.9,
+      "reviews": 987
+    },
+    {
+      "name": "Crucial T700 2TB Gen5 SSD",
+      "brand": "Crucial",
+      "model": "CT2000T700SSD3",
+      "category": "ssd",
+      "price": 249.99,
+      "specs": {
+        "capacity": "2TB",
+        "interface": "PCIe 5.0 NVMe",
+        "read_speed": "12400 MB/s",
+        "write_speed": "11800 MB/s",
+        "form_factor": "M.2 2280"
+      },
+      "rating": 4.8,
+      "reviews": 321
+    },
+    {
+      "name": "Sabrent Rocket 4 Plus 1TB",
+      "brand": "Sabrent",
+      "model": "SB-RKT4P-1TB",
+      "category": "ssd",
+      "price": 129.99,
+      "specs": {
+        "capacity": "1TB",
+        "interface": "PCIe 4.0 NVMe",
+        "read_speed": "7100 MB/s",
+        "write_speed": "6600 MB/s"
+      },
+      "rating": 4.7,
+      "reviews": 543
+    },
+    {
+      "name": "Netgear Nighthawk RAXE500",
+      "brand": "Netgear",
+      "model": "RAXE500",
+      "category": "router",
+      "price": 599.99,
+      "specs": {
+        "wifi_speed": "11000 Mbps (Tri-band)",
+        "ports": "1x 2.5G WAN, 4x Gigabit LAN, 2x USB 3.0",
+        "processor": "Quad-core 1.8 GHz",
+        "security": "WPA3, Netgear Armor"
+      },
+      "rating": 4.6,
+      "reviews": 432
+    },
+    {
+      "name": "Linksys Hydra Pro 6",
+      "brand": "Linksys",
+      "model": "MR5500",
+      "category": "router",
+      "price": 299.99,
+      "specs": {
+        "wifi_speed": "5400 Mbps (Dual-band)",
+        "ports": "1x 2.5G WAN, 4x Gigabit LAN",
+        "processor": "Quad-core 1.4 GHz"
+      },
+      "rating": 4.5,
+      "reviews": 321
+    },
+    {
+      "name": "Elgato Facecam",
+      "brand": "Elgato",
+      "model": "10GAA9902",
+      "category": "webcam",
+      "price": 199.99,
+      "specs": {
+        "resolution": "1080p @ 60fps",
+        "sensor": "Sony STARVIS",
+        "aperture": "f/2.4",
+        "focus": "Fixed (no autofocus)",
+        "features": "Uncompressed video, low-light optimization"
+      },
+      "rating": 4.6,
+      "reviews": 765
+    },
+    {
+      "name": "AverMedia Live Streamer CAM 513",
+      "brand": "AverMedia",
+      "model": "CAM513",
+      "category": "webcam",
+      "price": 249.99,
+      "specs": {
+        "resolution": "4K @ 30fps / 1080p @ 60fps",
+        "sensor": "Sony Exmor R",
+        "focus": "Autofocus",
+        "features": "HDR, AI tracking"
+      },
+      "rating": 4.5,
+      "reviews": 432
+    },
+    {
+      "name": "Beyerdynamic DT 990 Pro",
+      "brand": "Beyerdynamic",
+      "model": "DT990PRO",
+      "category": "headphones",
+      "price": 179.00,
+      "specs": {
+        "type": "Wired (Open-back)",
+        "impedance": "250 ohms",
+        "frequency_response": "5Hz-35kHz",
+        "features": "Over-ear, velour earpads"
+      },
+      "rating": 4.8,
+      "reviews": 5432
+    },
+    {
+      "name": "Sennheiser HD 560S",
+      "brand": "Sennheiser",
+      "model": "HD 560S",
+      "category": "headphones",
+      "price": 199.95,
+      "specs": {
+        "type": "Wired (Open-back)",
+        "impedance": "120 ohms",
+        "frequency_response": "6Hz-38kHz",
+        "features": "Lightweight, ergonomic design"
+      },
+      "rating": 4.7,
+      "reviews": 3210
+    },
+    {
+      "name": "Lian Li PC-O11 Dynamic",
+      "brand": "Lian Li",
+      "model": "PC-O11D",
+      "category": "pc_case",
+      "price": 149.99,
+      "specs": {
+        "type": "Full Tower",
+        "motherboard_support": "E-ATX, ATX, Micro-ATX",
+        "expansion_slots": "8",
+        "fans": "Supports up to 9x 120mm",
+        "radiator_support": "360mm top/bottom"
+      },
+      "rating": 4.8,
+      "reviews": 987
+    },
+    {
+      "name": "Fractal Design Torrent",
+      "brand": "Fractal Design",
+      "model": "FD-C-TOR1-01",
+      "category": "pc_case",
+      "price": 199.99,
+      "specs": {
+        "type": "Mid Tower",
+        "motherboard_support": "E-ATX, ATX, Micro-ATX",
+        "fans": "2x 180mm front, 3x 140mm bottom",
+        "radiator_support": "420mm front"
+      },
+      "rating": 4.7,
+      "reviews": 654
+    }
+]
