@@ -19,6 +19,7 @@ import {
 import { IoIosClose } from "react-icons/io";
 import { PiDotsThreeBold } from "react-icons/pi";
 import Loader from "./loader/Loader.jsx";
+import GradientText from "./Animations/GradientText.jsx";
 
 export default function Navbar() {
     const {
@@ -96,9 +97,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <div className="flex items-center">
                     <Link to="/" className="flex items-center space-x-2 cursor-pointer">
-                        <span className="text-2xl md:text-3xl font-extrabold tracking-tight text-white drop-shadow-lg">
-                            Work-in-Progress
-                        </span>
+                        <GradientText>Work-in-Progress</GradientText>
                     </Link>
                 </div>
 

@@ -181,7 +181,7 @@ export default function Profile() {
     const inputBorderColor = 'border-gray-600';
 
     return (
-        <div className={`min-h-screen ${bgColor} pt-16 pb-8`}>
+        <div className={`min-h-screen ${bgColor} pt-22 pb-4`}>
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Profile Header with Large Avatar */}
                 <motion.div

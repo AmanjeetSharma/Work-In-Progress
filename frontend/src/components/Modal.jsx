@@ -1,8 +1,22 @@
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX } from "react-icons/fi";
 import { CgSpinner } from "react-icons/cg";
 
 export default function Modal({ isOpen, onClose, children, isLoading = false }) {
+    // Disable background scroll when modal is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add("overflow-hidden");
+        } else {
+            document.body.classList.remove("overflow-hidden");
+        }
+
+        return () => {
+            document.body.classList.remove("overflow-hidden");
+        };
+    }, [isOpen]);
+
     return (
         <AnimatePresence>
             {isOpen && (
