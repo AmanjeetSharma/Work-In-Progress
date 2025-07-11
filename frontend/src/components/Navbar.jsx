@@ -15,7 +15,6 @@ import {
     FaTwitter,
     FaInstagram,
     FaYoutube,
-    FaFire
 } from "react-icons/fa";
 import { IoIosClose } from "react-icons/io";
 import { PiDotsThreeBold } from "react-icons/pi";
@@ -100,17 +99,6 @@ export default function Navbar() {
                         <span className="text-2xl md:text-3xl font-extrabold tracking-tight text-white drop-shadow-lg">
                             Work-in-Progress
                         </span>
-                        <motion.div
-                            initial={{ scale: 0.8 }}
-                            animate={{ scale: 1 }}
-                            transition={{
-                                repeat: Infinity,
-                                repeatType: "reverse",
-                                duration: 1.5
-                            }}
-                        >
-                            <FaFire className="text-orange-500 text-2xl md:text-3xl animate-pulse" />
-                        </motion.div>
                     </Link>
                 </div>
 

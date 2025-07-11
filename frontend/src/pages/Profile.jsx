@@ -119,7 +119,6 @@ export default function Profile() {
         return user.avatar || defaultAvatar;
     };
 
-    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         show: {
@@ -135,7 +134,6 @@ export default function Profile() {
         show: { opacity: 1, y: 0 }
     };
 
-    // Theme classes (dark mode only)
     const bgColor = 'bg-slate-950';
     const cardBgColor = 'bg-gray-800';
     const headerBgColor = 'bg-gray-700';
