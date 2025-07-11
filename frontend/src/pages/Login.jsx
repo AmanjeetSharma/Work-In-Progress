@@ -26,11 +26,11 @@ export default function Login() {
         try {
             setLoading(true);
             await login({ ...form, device: getDeviceInfo() });
-            toast.success("🎉 Login successful!", { duration: 5000 });
+            toast.success("Login successful!", { duration: 5000 });
             navigate("/");
         } catch (err) {
             console.error("Login error:", err);
-            // toast.error("Login failed. Please try again.");
+            toast.error("Login failed. Please try again.");
         } finally {
             setLoading(false);
         }
@@ -41,7 +41,7 @@ export default function Login() {
             const tokenId = credentialResponse.credential;
             const device = getDeviceInfo();
             await loginWithGoogle(tokenId, device);
-            toast.success("🎉 Google login successful!", { duration: 5000 });
+            toast.success("Google login successful!", { duration: 5000 });
             navigate("/");
         } catch (err) {
             console.error("Google login failed:", err);
@@ -67,28 +67,28 @@ export default function Login() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4 pt-16 sm:pt-4">
             <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="w-full max-w-md"
+                className="w-full max-w-md mx-auto"
             >
                 <div className="bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-700">
-                    <div className="p-8">
-                        <div className="text-center mb-8">
-                            <h2 className="text-3xl font-bold text-white mb-2">Welcome</h2>
-                            <p className="text-gray-400">Sign in to access your account</p>
+                    <div className="p-6 sm:p-8">
+                        <div className="text-center mb-6 sm:mb-8">
+                            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Welcome</h2>
+                            <p className="text-gray-400 text-sm sm:text-base">Sign in to access your account</p>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="space-y-4">
+                        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                            <div className="space-y-3 sm:space-y-4">
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                         <FiMail className="h-5 w-5 text-gray-500" />
                                     </div>
                                     <input
-                                        className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400"
+                                        className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 text-sm sm:text-base"
                                         placeholder="Email Address"
                                         type="email"
                                         required
@@ -102,7 +102,7 @@ export default function Login() {
                                         <FiLock className="h-5 w-5 text-gray-500" />
                                     </div>
                                     <input
-                                        className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400"
+                                        className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 text-sm sm:text-base"
                                         placeholder="Password"
                                         type="password"
                                         required
@@ -116,7 +116,7 @@ export default function Login() {
                                 <button
                                     type="button"
                                     onClick={() => setIsForgotOpen(true)}
-                                    className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                                    className="text-xs sm:text-sm text-blue-400 hover:text-blue-300 transition-colors"
                                 >
                                     Forgot password?
                                 </button>
@@ -127,33 +127,35 @@ export default function Login() {
                                 disabled={loading}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 rounded-lg font-medium flex items-center justify-center space-x-2 hover:shadow-lg transition-all"
+                                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-2 sm:py-3 rounded-lg font-medium flex items-center justify-center space-x-2 hover:shadow-lg transition-all text-sm sm:text-base"
                             >
                                 <span>{loading ? "Signing In..." : "Sign In"}</span>
-                                {!loading && <FiArrowRight className="h-5 w-5" />}
+                                {!loading && <FiArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />}
                             </motion.button>
                         </form>
 
-                        <div className="my-6 flex items-center">
+                        <div className="my-4 sm:my-6 flex items-center">
                             <div className="flex-grow border-t border-gray-700"></div>
-                            <span className="flex-shrink mx-4 text-gray-400">OR</span>
+                            <span className="flex-shrink mx-3 sm:mx-4 text-gray-400 text-xs sm:text-sm">OR</span>
                             <div className="flex-grow border-t border-gray-700"></div>
                         </div>
 
                         <div className="flex justify-center">
-                            <GoogleLogin
-                                onSuccess={handleGoogleSuccess}
-                                onError={handleGoogleError}
-                                useOneTap
-                                theme="filled_blue"
-                                size="large"
-                                shape="pill"
-                            />
+                            <div className="scale-90 sm:scale-100">
+                                <GoogleLogin
+                                    onSuccess={handleGoogleSuccess}
+                                    onError={handleGoogleError}
+                                    useOneTap
+                                    theme="filled_blue"
+                                    size="large"
+                                    shape="pill"
+                                />
+                            </div>
                         </div>
                     </div>
 
-                    <div className="px-8 py-4 bg-gray-900/50 text-center">
-                        <p className="text-gray-400">
+                    <div className="px-6 sm:px-8 py-4 bg-gray-900/50 text-center">
+                        <p className="text-gray-400 text-xs sm:text-sm">
                             Don't have an account?{" "}
                             <button 
                                 onClick={() => navigate("/register")} 
@@ -168,9 +170,9 @@ export default function Login() {
 
             {/* Forgot Password Modal */}
             <Modal isOpen={isForgotOpen} onClose={() => setIsForgotOpen(false)}>
-                <div className="bg-gray-800 rounded-xl p-6 max-w-md w-full">
-                    <h2 className="text-2xl font-bold text-white mb-4">Reset Password</h2>
-                    <form onSubmit={handleForgotSubmit} className="space-y-4">
+                <div className="bg-gray-800 rounded-xl p-4 sm:p-6 max-w-md w-full">
+                    <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Reset Password</h2>
+                    <form onSubmit={handleForgotSubmit} className="space-y-3 sm:space-y-4">
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <FiMail className="h-5 w-5 text-gray-500" />
@@ -181,14 +183,14 @@ export default function Login() {
                                 value={forgotEmail}
                                 onChange={(e) => setForgotEmail(e.target.value)}
                                 required
-                                className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400"
+                                className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 text-sm sm:text-base"
                             />
                         </div>
                         <motion.button
                             type="submit"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 rounded-lg font-medium hover:shadow-lg transition-all"
+                            className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-2 sm:py-3 rounded-lg font-medium hover:shadow-lg transition-all text-sm sm:text-base"
                         >
                             Send Reset Link
                         </motion.button>

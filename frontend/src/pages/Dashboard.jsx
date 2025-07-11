@@ -2,29 +2,27 @@ import { useState } from "react";
 import AIModal from "../components/AIModal";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
-import Loader from "../components/loader/Loader.jsx";
 
 export default function Dashboard() {
     const [showAI, setShowAI] = useState(false);
 
     return (
         <div className="p-6 relative min-h-screen bg-slate-950 pt-30">
-            <h1 className="text-3xl font-bold mb-4 text-purple-600">Dashboard</h1>
+            <h1 className="text-5xl font-bold mb-4 text-blue-600 text-center">Dashboard</h1>
 
-            <Loader />
             <div className="fixed bottom-8 right-8 z-50">
                 <div className="group relative">
                     <motion.button
                         onClick={() => setShowAI(true)}
                         whileHover={{ scale: 1.1 }}
                         transition={{ type: "spring", stiffness: 300 }}
-                        className="p-3 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                        className="p-3 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
                         aria-label="Ask AI"
                     >
-                        <Sparkles className="w-6 h-6 text-yellow-200 group-hover:text-yellow-300 group-hover:scale-110 transition-transform duration-300" />
+                        <Sparkles className="w-6 h-6 text-white group-hover:text-yellow-200 group-hover:scale-110 transition-transform duration-300" />
                     </motion.button>
                     <span
-                        className="absolute -top-12 left-1/2 -translate-x-1/2 z-20 origin-bottom scale-0 px-3 rounded-lg border border-gray-200 bg-white/90 backdrop-blur-sm py-1.5 text-sm font-semibold text-slate-700 shadow-md transition-all duration-300 group-hover:scale-100"
+                        className="absolute -top-12 left-1/2 -translate-x-1/2 z-20 origin-bottom scale-0 px-3 rounded-lg border border-gray-200 bg-white/90 backdrop-blur-sm py-1.5 text-sm font-semibold text-slate-700 shadow-md transition-all duration-300 group-hover:scale-100 cursor-pointer"
                         style={{ fontFamily: "'Poppins', sans-serif" }}
                     >
                         Ask Ai

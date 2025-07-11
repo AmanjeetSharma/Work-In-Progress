@@ -10,8 +10,21 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [navigationLoading, setNavigationLoading] = useState(false);
 
     const isFirstFetch = useRef(true);// Track if it's the first fetch to avoid showing error on initial load
+
+    const LOADING_TIMEOUT = 300;
+
+    const startNavigation = () => {
+        setNavigationLoading(true);
+        // Set timeout as fallback in case navigation stalls
+        return setTimeout(() => {
+            endNavigation();
+        }, LOADING_TIMEOUT);
+    };
+    const endNavigation = () => setNavigationLoading(false);
+
 
     const fetchProfile = async () => {
         try {
@@ -67,7 +80,7 @@ export const AuthProvider = ({ children }) => {
             toast.custom((t) => (
                 <div
                     onClick={() => toast.dismiss(t.id)}
-                    className="my-toast-error"
+                    className="my-toast my-toast-error"
                 >
                     {msg}
                 </div>
@@ -98,7 +111,7 @@ export const AuthProvider = ({ children }) => {
             await axiosInstance.post("auth/logout");
             setUser(null);
             toast.custom(() => (
-                <div className="my-toast-error">
+                <div className="my-toast my-toast-logout">
                     👋 Logged out successfully!
                 </div>
             ));
@@ -204,7 +217,7 @@ export const AuthProvider = ({ children }) => {
         try {
             await axiosInstance.post("auth/forgot-password", { email });
             toast.custom(() => (
-                <div className="my-toast-info">
+                <div className="my-toast my-toast-info">
                     📧 An email has been sent to {email}
                 </div>
             ), {
@@ -268,6 +281,9 @@ export const AuthProvider = ({ children }) => {
                 forgotPassword,
                 resetPassword,
                 askAI,
+                navigationLoading,
+                startNavigation,
+                endNavigation,
             }}
         >
             {children}

@@ -44,22 +44,22 @@ export default function Register() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4 pt-16">
-            <motion.div 
+        <div className="min-h-screen bg-slate-950 flex items-center justify-center p-4 pt-16 sm:pt-4">
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="w-full max-w-md"
+                className="w-full max-w-md mx-auto"
             >
                 <div className="bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-700">
-                    <div className="p-8">
-                        <div className="text-center mb-8">
-                            <h2 className="text-3xl font-bold text-white mb-2">Create Account</h2>
-                            <p className="text-gray-400">Join our community today</p>
+                    <div className="p-6 sm:p-8">
+                        <div className="text-center mb-6 sm:mb-8">
+                            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Create Account</h2>
+                            <p className="text-gray-400 text-sm sm:text-base">Join our community today</p>
                         </div>
 
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="space-y-4">
+                        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                            <div className="space-y-3 sm:space-y-4">
                                 <div className="relative">
                                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                         <FiUser className="h-5 w-5 text-gray-500" />
@@ -68,7 +68,7 @@ export default function Register() {
                                         id="username"
                                         type="text"
                                         placeholder="Username"
-                                        className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400"
+                                        className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 text-sm sm:text-base"
                                         onChange={(e) => setForm({ ...form, username: e.target.value })}
                                         required
                                     />
@@ -82,7 +82,7 @@ export default function Register() {
                                         id="name"
                                         type="text"
                                         placeholder="Full Name"
-                                        className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400"
+                                        className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 text-sm sm:text-base"
                                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                                         required
                                     />
@@ -96,7 +96,7 @@ export default function Register() {
                                         id="email"
                                         type="email"
                                         placeholder="Email Address"
-                                        className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400"
+                                        className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 text-sm sm:text-base"
                                         onChange={(e) => setForm({ ...form, email: e.target.value })}
                                         required
                                     />
@@ -110,22 +110,22 @@ export default function Register() {
                                         id="password"
                                         type="password"
                                         placeholder="Password"
-                                        className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400"
+                                        className="w-full pl-10 pr-4 py-2 sm:py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 text-sm sm:text-base"
                                         onChange={(e) => setForm({ ...form, password: e.target.value })}
                                         required
                                     />
                                 </div>
 
                                 <div className="relative">
-                                    <label className="block text-sm font-medium text-gray-400 mb-2">
+                                    <label className="block text-xs sm:text-sm font-medium text-gray-400 mb-1 sm:mb-2">
                                         Profile Picture
                                     </label>
                                     <div className="flex items-center">
-                                        <label className="flex items-center space-x-3 cursor-pointer">
-                                            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-700 border border-gray-600">
-                                                <FiCamera className="h-5 w-5 text-gray-400" />
+                                        <label className="flex items-center space-x-2 sm:space-x-3 cursor-pointer">
+                                            <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-700 border border-gray-600">
+                                                <FiCamera className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
                                             </div>
-                                            <span className="text-sm text-gray-300">
+                                            <span className="text-xs sm:text-sm text-gray-300">
                                                 {form.avatar ? form.avatar.name : "Choose image"}
                                             </span>
                                             <input
@@ -145,15 +145,15 @@ export default function Register() {
                                 disabled={loading}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 rounded-lg font-medium flex items-center justify-center space-x-2 hover:shadow-lg transition-all"
+                                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-2 sm:py-3 rounded-lg font-medium flex items-center justify-center space-x-2 hover:shadow-lg transition-all text-sm sm:text-base"
                             >
                                 <span>{loading ? "Creating Account..." : "Register"}</span>
-                                {!loading && <FiArrowRight className="h-5 w-5" />}
+                                {!loading && <FiArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />}
                             </motion.button>
                         </form>
 
-                        <div className="mt-6 text-center">
-                            <p className="text-gray-400">
+                        <div className="mt-4 sm:mt-6 text-center">
+                            <p className="text-gray-400 text-xs sm:text-sm">
                                 Already have an account?{" "}
                                 <button 
                                     onClick={() => navigate("/login")} 

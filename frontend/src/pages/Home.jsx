@@ -42,7 +42,6 @@ const Home = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Discover amazing features and build something incredible with our platform.
           </motion.p>
         </motion.div>
       </div>
