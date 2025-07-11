@@ -6,6 +6,9 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { User } from "../models/user.model.js";
 import { usernameValidator, avatarValidator } from "../utils/validators.js";
+import { verificationEmail } from "../utils/email/verificationEmail.js";
+import sendEmail from "../utils/sendEmail.js";
+import { generateVerificationToken } from "../utils/token.js";
 
 const updateProfile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id);
@@ -58,6 +61,7 @@ const updateProfile = asyncHandler(async (req, res) => {
 
 const getProfile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id).select("-password -sessions");
+    console.log("Fetching user profile for:", user);
     if (!user) {
         throw new ApiError(404, "User not found");
     }
@@ -198,4 +202,42 @@ const listUserSessions = asyncHandler(async (req, res) => {
 
 
 
-export { updateProfile, getProfile, changePassword, deleteAccount, listUserSessions };
+
+
+const sendVerificationEmail = asyncHandler(async (req, res) => {
+    const userId = req.params.userId;
+
+    const user = await User.findById(userId);
+    if (!user) throw new ApiError(404, "User not found");
+
+    const token = generateVerificationToken();
+    user.verificationToken = token;
+    user.verificationTokenExpiry = Date.now() + 1000 * 60 * 30; // 30 min validity
+    await user.save();
+
+    const emailContent = verificationEmail(token);
+    await sendEmail(user.email, "Verify your email", emailContent, true);
+
+    res.status(200).json(new ApiResponse(200, {}, "Verification email sent"));
+});
+
+const verifyEmail = asyncHandler(async (req, res) => {
+    const { token } = req.params;
+
+    const user = await User.findOne({
+        verificationToken: token,
+        verificationTokenExpiry: { $gt: Date.now() },
+    });
+
+    if (!user) throw new ApiError(400, "Invalid or expired token");
+
+    user.isVerified = true;
+    user.verificationToken = undefined;
+    user.verificationTokenExpiry = undefined;
+    await user.save();
+
+    res.redirect(`${process.env.FRONTEND_URL}/profile?verified=true`);
+});
+
+
+export { updateProfile, getProfile, changePassword, deleteAccount, listUserSessions, sendVerificationEmail, verifyEmail };

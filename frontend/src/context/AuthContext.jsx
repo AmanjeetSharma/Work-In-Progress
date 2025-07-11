@@ -73,7 +73,18 @@ export const AuthProvider = ({ children }) => {
     const login = async (data) => {
         try {
             const res = await axiosInstance.post("auth/login", data);
-            setUser(res.data.data.user);
+            await fetchProfile(); // Will refresh user's profile after login
+            toast.custom((t) => (
+                <div
+                    onClick={() => toast.dismiss(t.id)}
+                    className="my-toast my-toast-success"
+                >
+                    🎉 Login successful!
+                </div>
+            ), {
+                duration: 3000,
+                position: "bottom-left",
+            });
         } catch (err) {
             console.error("❌ Login error:", err);
             const msg = err?.response?.data?.message || "Login failed";
@@ -97,7 +108,7 @@ export const AuthProvider = ({ children }) => {
     const loginWithGoogle = async (tokenId, device) => {
         try {
             const res = await axiosInstance.post("oauth2/google-login", { tokenId, device });
-            setUser(res.data.data.user);
+            await fetchProfile(); // Will refresh user's profile after login
         } catch (err) {
             console.error("❌ Google login error:", err);
             const msg = err?.response?.data?.message || "Google login failed";
@@ -263,6 +274,22 @@ export const AuthProvider = ({ children }) => {
     };
 
 
+
+
+
+
+
+    const sendVerificationEmail = async () => {
+        try {
+            console.log("reached till auth context sendVerificationEmail");
+            const response = await axiosInstance.post(`user/send-verification/${user._id}`);
+            return response.data.message;
+        } catch (error) {
+            console.error("❌ Error sending verification email:", error);
+            throw error;
+        }
+    };
+
     return (
         <AuthContext.Provider
             value={{
@@ -284,6 +311,7 @@ export const AuthProvider = ({ children }) => {
                 navigationLoading,
                 startNavigation,
                 endNavigation,
+                sendVerificationEmail,
             }}
         >
             {children}

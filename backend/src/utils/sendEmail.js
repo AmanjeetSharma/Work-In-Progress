@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
  * @param {string} content - Email content (text or HTML)
  * @param {boolean} [isHtml=false] - Whether the content is HTML
  */
-export default async function sendEmail(to, subject, content, isHtml = false) {
+const sendEmail = async (to, subject, content, isHtml = false) => {
     const mailOptions = {
         from: process.env.SMTP_FROM, // Example: "Your App <noreply@yourapp.com>"
         to,
@@ -32,3 +32,5 @@ export default async function sendEmail(to, subject, content, isHtml = false) {
         throw new Error("Email sending failed. Please try again.");
     }
 }
+
+export default sendEmail;

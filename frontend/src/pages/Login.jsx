@@ -26,11 +26,9 @@ export default function Login() {
         try {
             setLoading(true);
             await login({ ...form, device: getDeviceInfo() });
-            toast.success("Login successful!", { duration: 5000 });
             navigate("/");
         } catch (err) {
             console.error("Login error:", err);
-            toast.error("Login failed. Please try again.");
         } finally {
             setLoading(false);
         }
@@ -41,7 +39,6 @@ export default function Login() {
             const tokenId = credentialResponse.credential;
             const device = getDeviceInfo();
             await loginWithGoogle(tokenId, device);
-            toast.success("Google login successful!", { duration: 5000 });
             navigate("/");
         } catch (err) {
             console.error("Google login failed:", err);

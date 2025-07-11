@@ -7,35 +7,64 @@ export default function Modal({ isOpen, onClose, children, isLoading = false }) 
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50"
+                    initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+                    animate={{ opacity: 1, backdropFilter: "blur(8px)" }}
+                    exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="fixed inset-0 bg-gray-900/70 flex items-center justify-center z-50"
                 >
                     <motion.div
-                        initial={{ scale: 0.95, y: 20 }}
-                        animate={{ scale: 1, y: 0 }}
-                        exit={{ scale: 0.95, y: 20 }}
-                        transition={{ type: "spring", damping: 20, stiffness: 300 }}
-                        className="bg-white rounded-xl shadow-2xl p-6 w-full max-w-md relative mx-4"
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{
+                            scale: 1,
+                            opacity: 1,
+                            transition: {
+                                type: "spring",
+                                damping: 20,
+                                stiffness: 300,
+                                delay: 0.1
+                            }
+                        }}
+                        exit={{
+                            scale: 0.9,
+                            opacity: 0,
+                            transition: { ease: "easeIn" }
+                        }}
+                        className="bg-gray-800 rounded-xl shadow-2xl p-6 w-full max-w-md relative mx-4 border border-gray-700"
                     >
-                        <button
+                        <motion.button
                             onClick={onClose}
                             disabled={isLoading}
-                            className={`absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full 
-                                bg-red-500 hover:bg-red-600 transition-colors duration-200 shadow-md
-                                focus:outline-none focus:ring-2 focus:ring-red-300
+                            whileHover={!isLoading ? { scale: 1.1 } : {}}
+                            whileTap={!isLoading ? { scale: 0.95 } : {}}
+                            className={`absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full 
+                                bg-gray-700 hover:bg-red-600 transition-all duration-100 shadow-md
+                                focus:outline-none focus:ring-2 focus:ring-gray-500 border border-white cursor-pointer
                                 ${isLoading ? "opacity-70 cursor-not-allowed" : ""}`}
                             aria-label="Close modal"
                         >
                             {isLoading ? (
-                                <CgSpinner className="h-5 w-5 text-white animate-spin" />
+                                <motion.div
+                                    animate={{ rotate: 360 }}
+                                    transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                                >
+                                    <CgSpinner className="h-4 w-4 text-gray-300" />
+                                </motion.div>
                             ) : (
-                                <FiX className="h-6 w-6 text-white" />
+                                <FiX className="h-4 w-4 text-gray-300" />
                             )}
-                        </button>
-                        {children}
+                        </motion.button>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{
+                                opacity: 1,
+                                y: 0,
+                                transition: { delay: 0.2 }
+                            }}
+                        >
+                            {children}
+                        </motion.div>
                     </motion.div>
                 </motion.div>
             )}

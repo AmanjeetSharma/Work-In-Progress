@@ -36,6 +36,8 @@ export const googleLogin = asyncHandler(async (req, res) => {
         email,
         username: email.split("@")[0].replace(/\d+/g, "") + Math.floor(1000 + Math.random() * 90000),
         name,
+        password: null,
+        isVerified: true,
         avatar: picture || "",
         googleId,
         sessions: [],
