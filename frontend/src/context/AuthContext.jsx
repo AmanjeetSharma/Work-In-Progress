@@ -59,6 +59,7 @@ export const AuthProvider = ({ children }) => {
             await axiosInstance.post("auth/register", formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
+            toast.success("Registration successful! Please login.");
         } catch (err) {
             console.error("❌ Register error:", err);
             const msg = err?.response?.data?.message || "Register failed";
@@ -86,7 +87,7 @@ export const AuthProvider = ({ children }) => {
                 position: "bottom-left",
             });
         } catch (err) {
-            console.error("❌ Login error:", err);
+            console.error("❌ Login error:", err);  
             const msg = err?.response?.data?.message || "Login failed";
             toast.custom((t) => (
                 <div

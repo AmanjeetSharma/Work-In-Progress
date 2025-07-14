@@ -26,7 +26,7 @@ const register = asyncHandler(async (req, res) => {
     }
 
     if (!emailValidator(email)) {
-        throw new ApiError(400, "Invalid email format");
+        throw new ApiError(400, "Please provide a valid email address");
     }
     if (!usernameValidator(username)) {
         throw new ApiError(400, "Username must be 3-20 chars, only letters, numbers, or underscores");

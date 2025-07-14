@@ -42,7 +42,6 @@ export default function Login() {
             navigate("/");
         } catch (err) {
             console.error("Google login failed:", err);
-            toast.error("Google login failed. Please try again.");
         }
     };
 
@@ -113,7 +112,7 @@ export default function Login() {
                                 <button
                                     type="button"
                                     onClick={() => setIsForgotOpen(true)}
-                                    className="text-xs sm:text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                                    className="text-xs sm:text-sm text-blue-500 hover:text-white transition-colors cursor-pointer"
                                 >
                                     Forgot password?
                                 </button>
@@ -124,7 +123,7 @@ export default function Login() {
                                 disabled={loading}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-2 sm:py-3 rounded-lg font-medium flex items-center justify-center space-x-2 hover:shadow-lg transition-all text-sm sm:text-base"
+                                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-2 sm:py-3 rounded-lg font-medium flex items-center justify-center space-x-2 hover:shadow-lg transition-all text-sm sm:text-base cursor-pointer"
                             >
                                 <span>{loading ? "Signing In..." : "Sign In"}</span>
                                 {!loading && <FiArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />}
@@ -156,7 +155,7 @@ export default function Login() {
                             Don't have an account?{" "}
                             <button 
                                 onClick={() => navigate("/register")} 
-                                className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                                className="text-blue-400 hover:text-white font-medium transition-colors cursor-pointer"
                             >
                                 Sign up
                             </button>

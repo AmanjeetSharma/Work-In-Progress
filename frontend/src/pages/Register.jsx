@@ -26,10 +26,10 @@ export default function Register() {
                 if (value) formData.append(key, value);
             });
             await register(formData);
-            toast.success("🎉 Registration successful! Please login.");
+            // toast.success("🎉 Registration successful! Please login.");
             navigate("/login");
         } catch (error) {
-            toast.error("Registration failed. Please try again.");
+            // toast.error("Registration failed. Please try again.");
             console.error("Registration error:", error);
         } finally {
             setLoading(false);
@@ -145,7 +145,7 @@ export default function Register() {
                                 disabled={loading}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-2 sm:py-3 rounded-lg font-medium flex items-center justify-center space-x-2 hover:shadow-lg transition-all text-sm sm:text-base"
+                                className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-2 sm:py-3 rounded-lg font-medium flex items-center justify-center space-x-2 hover:shadow-lg transition-all text-sm sm:text-base cursor-pointer"
                             >
                                 <span>{loading ? "Creating Account..." : "Register"}</span>
                                 {!loading && <FiArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />}
@@ -157,7 +157,7 @@ export default function Register() {
                                 Already have an account?{" "}
                                 <button 
                                     onClick={() => navigate("/login")} 
-                                    className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                                    className="text-blue-400 hover:text-blue-300 font-medium transition-colors cursor-pointer"
                                 >
                                     Sign in
                                 </button>

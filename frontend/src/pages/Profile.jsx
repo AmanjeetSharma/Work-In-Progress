@@ -206,7 +206,7 @@ export default function Profile() {
                                     />
                                     <button
                                         onClick={openEdit}
-                                        className="absolute bottom-2 right-2 bg-blue-600 hover:bg-blue-700 p-2 rounded-full transition-all duration-300 transform group-hover:scale-110"
+                                        className="absolute bottom-2 right-2 bg-blue-600 hover:bg-blue-700 p-2 rounded-full transition-all duration-300 transform group-hover:scale-110 cursor-pointer"
                                         aria-label="Edit profile"
                                     >
                                         <FiCamera className="text-white" size={16} />
@@ -292,7 +292,7 @@ export default function Profile() {
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={openEdit}
-                                className={`p-4 rounded-lg ${buttonBgColor} border ${borderColor} transition flex items-start gap-3`}
+                                className={`p-4 rounded-lg ${buttonBgColor} border ${borderColor} transition flex items-start gap-3 cursor-pointer`}
                             >
                                 <div className={`p-2 rounded-full bg-blue-600/20 text-blue-400`}>
                                     <FiEdit2 size={18} />
@@ -308,7 +308,7 @@ export default function Profile() {
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={() => setIsPasswordOpen(true)}
-                                className={`p-4 rounded-lg ${buttonBgColor} border ${borderColor} transition flex items-start gap-3`}
+                                className={`p-4 rounded-lg ${buttonBgColor} border ${borderColor} transition flex items-start gap-3 cursor-pointer`}
                             >
                                 <div className={`p-2 rounded-full bg-purple-600/20 text-purple-400`}>
                                     <FiKey size={18} />
@@ -327,7 +327,7 @@ export default function Profile() {
                                     loadSessions();
                                     setIsSessionsOpen(true);
                                 }}
-                                className={`p-4 rounded-lg ${buttonBgColor} border ${borderColor} transition flex items-start gap-3`}
+                                className={`p-4 rounded-lg ${buttonBgColor} border ${borderColor} transition flex items-start gap-3 cursor-pointer`}
                             >
                                 <div className={`p-2 rounded-full bg-green-600/20 text-green-400`}>
                                     <FiMonitor size={18} />
@@ -343,7 +343,7 @@ export default function Profile() {
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={() => setIsLogoutAllOpen(true)}
-                                className={`p-4 rounded-lg ${buttonBgColor} border ${borderColor} transition flex items-start gap-3`}
+                                className={`p-4 rounded-lg ${buttonBgColor} border ${borderColor} transition flex items-start gap-3 cursor-pointer`}
                             >
                                 <div className={`p-2 rounded-full bg-yellow-600/20 text-yellow-400`}>
                                     <FiLogOut size={18} />
@@ -359,7 +359,7 @@ export default function Profile() {
                                 whileHover={{ y: -2 }}
                                 whileTap={{ scale: 0.98 }}
                                 onClick={() => setIsDeleteOpen(true)}
-                                className={`p-4 rounded-lg bg-red-900/20 border border-red-700 hover:bg-red-900/30 transition flex items-start gap-3 md:col-span-2`}
+                                className={`p-4 rounded-lg bg-red-900/20 border border-red-700 hover:bg-red-900/30 transition flex items-start gap-3 md:col-span-2  cursor-pointer`}
                             >
                                 <div className={`p-2 rounded-full bg-red-600/20 text-red-400`}>
                                     <FiTrash2 size={18} />
@@ -374,6 +374,7 @@ export default function Profile() {
                 </div>
             </div>
 
+            {/* Modals*/}
             {/* Edit Modal */}
             <Modal isOpen={isEditOpen} onClose={() => setIsEditOpen(false)} darkMode={true}>
                 <h2 className={`text-xl font-semibold ${textColor} mb-4`}>Edit Profile</h2>
@@ -437,13 +438,13 @@ export default function Profile() {
                         <button
                             type="button"
                             onClick={() => setIsEditOpen(false)}
-                            className={`px-4 py-2 text-sm font-medium ${textColor} bg-gray-600 hover:bg-gray-500 rounded-md transition`}
+                            className={`px-4 py-2 text-sm font-medium ${textColor} bg-gray-600 hover:bg-gray-500 rounded-md transition cursor-pointer`}
                         >
                             Cancel
                         </button>
                         <button
                             type="submit"
-                            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer"
                         >
                             Save Changes
                         </button>
@@ -521,13 +522,13 @@ export default function Profile() {
                 <div className="mt-5 sm:mt-6 space-y-3">
                     <button
                         onClick={handleLogoutAll}
-                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm transition"
+                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm transition cursor-pointer"
                     >
                         Yes, Logout All Sessions
                     </button>
                     <button
                         onClick={() => setIsLogoutAllOpen(false)}
-                        className={`w-full inline-flex justify-center rounded-md border ${borderColor} shadow-sm px-4 py-2 bg-gray-700 hover:bg-gray-600 text-base font-medium ${textColor} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm transition`}
+                        className={`w-full inline-flex justify-center rounded-md border ${borderColor} shadow-sm px-4 py-2 bg-gray-700 hover:bg-gray-600 text-base font-medium ${textColor} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm transition cursor-pointer`}
                     >
                         Cancel
                     </button>
@@ -587,13 +588,13 @@ export default function Profile() {
                         <button
                             type="button"
                             onClick={() => setIsPasswordOpen(false)}
-                            className={`px-4 py-2 text-sm font-medium ${textColor} bg-gray-600 hover:bg-gray-500 rounded-md transition`}
+                            className={`px-4 py-2 text-sm font-medium ${textColor} bg-gray-600 hover:bg-gray-500 rounded-md transition cursor-pointer`}
                         >
                             Cancel
                         </button>
                         <button
                             type="submit"
-                            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer"
                         >
                             Change Password
                         </button>
@@ -613,13 +614,13 @@ export default function Profile() {
                 <div className="mt-5 sm:mt-6 space-y-3">
                     <button
                         onClick={handleDelete}
-                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm transition"
+                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm transition cursor-pointer"
                     >
                         Delete My Account
                     </button>
                     <button
                         onClick={() => setIsDeleteOpen(false)}
-                        className={`w-full inline-flex justify-center rounded-md border ${borderColor} shadow-sm px-4 py-2 bg-gray-700 hover:bg-gray-600 text-base font-medium ${textColor} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm transition`}
+                        className={`w-full inline-flex justify-center rounded-md border ${borderColor} shadow-sm px-4 py-2 bg-gray-700 hover:bg-gray-600 text-base font-medium ${textColor} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm transition cursor-pointer`}
                     >
                         Cancel
                     </button>
