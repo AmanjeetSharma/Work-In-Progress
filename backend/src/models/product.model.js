@@ -8,6 +8,15 @@ const productSchema = new mongoose.Schema(
       trim: true,
       minlength: [3, "Name must be at least 3 characters"],
       maxlength: [150, "Name cannot exceed 150 characters"],
+      unique: true,
+    },
+    slug: {
+      type: String,
+      required: [true, "Slug is required"],
+      trim: true,
+      unique: true,
+      lowercase: true,
+      index: true,
     },
     brand: {
       type: String,
@@ -73,9 +82,12 @@ const productSchema = new mongoose.Schema(
       min: [0, "Reviews count cannot be negative"],
     },
     aiMeta: {
+      aiSummary: { type: String, default: "" },
+      aiTags: { type: [String], default: [] },
       keywordsEmbedding: { type: [Number], default: [] },
-      descriptionGenerated: { type: Boolean, default: false },
+      descriptionGenerated: { type: Boolean, default: false }
     },
+
   },
   {
     timestamps: true,

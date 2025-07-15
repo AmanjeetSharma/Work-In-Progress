@@ -20,12 +20,15 @@ import authRoutes from './routes/auth.routes.js';
 import oauthRoutes from './routes/oauth.routes.js';
 import aiRoutes from './routes/ai.routes.js';
 import userRoutes from './routes/user.routes.js';
+import productRoutes from "./routes/product.routes.js";
+
 
 // Using Routes
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/oauth2', oauthRoutes);
 app.use('/api/v1/ai', aiRoutes);
 app.use('/api/v1/user', userRoutes);
+app.use("/api/v1/products", productRoutes);
 
 app.use(errorHandler);
 

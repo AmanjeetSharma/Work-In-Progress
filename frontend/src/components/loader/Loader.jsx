@@ -1,6 +1,13 @@
 import React from "react";
-import "./Loader.css"; // We'll extract the CSS into a separate file
+import "./Loader.css";
 
+const LoaderPage = () => {
+    return (
+        <div className="min-h-screen bg-slate-900 flex items-center justify-center" style={{ backdropFilter: "blur(4px)" }}>
+            <Loader />
+        </div>
+    );
+};
 
 const Loader = () => {
     return (
@@ -19,4 +26,4 @@ const Loader = () => {
     );
 };
 
-export default Loader;
+export default LoaderPage;

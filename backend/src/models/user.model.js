@@ -64,6 +64,11 @@ const userSchema = new Schema(
         verificationTokenExpiry: {
             type: Date,
         },
+        role: {
+            type: String,
+            enum: ["USER", "ADMIN"],
+            default: "USER"
+        },
         sessions: [sessionSchema]
     }, { timestamps: true }
 )

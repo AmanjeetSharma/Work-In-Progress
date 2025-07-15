@@ -10,11 +10,6 @@
 }
 
 /* Specific toast types */
-.my-toast-logout {
-    background-color: #ffffff;
-    color: #2b2b2b;
-}
-
 .my-toast-error {
     background-color: #a70000;
 }
@@ -22,6 +17,7 @@
 .my-toast-info {
     background-color: #2196f3;
 }
+
 
 /* Responsive styles */
 @media (max-width: 500px) {

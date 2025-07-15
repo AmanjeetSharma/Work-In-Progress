@@ -10,21 +10,8 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [navigationLoading, setNavigationLoading] = useState(false);
 
     const isFirstFetch = useRef(true);// Track if it's the first fetch to avoid showing error on initial load
-
-    const LOADING_TIMEOUT = 300;
-
-    const startNavigation = () => {
-        setNavigationLoading(true);
-        // Set timeout as fallback in case navigation stalls
-        return setTimeout(() => {
-            endNavigation();
-        }, LOADING_TIMEOUT);
-    };
-    const endNavigation = () => setNavigationLoading(false);
-
 
     const fetchProfile = async () => {
         try {
@@ -87,7 +74,7 @@ export const AuthProvider = ({ children }) => {
                 position: "bottom-left",
             });
         } catch (err) {
-            console.error("❌ Login error:", err);  
+            console.error("❌ Login error:", err);
             const msg = err?.response?.data?.message || "Login failed";
             toast.custom((t) => (
                 <div
@@ -110,10 +97,11 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await axiosInstance.post("oauth2/google-login", { tokenId, device });
             await fetchProfile(); // Will refresh user's profile after login
+            toast.success("Google login successful!", { duration: 3000, position: "bottom-left" });
         } catch (err) {
             console.error("❌ Google login error:", err);
             const msg = err?.response?.data?.message || "Google login failed";
-            toast.error(msg, { duration: 3000 });
+            toast.error(msg, { duration: 3000, position: "bottom-left" });
             throw err;
         }
     };
@@ -122,11 +110,7 @@ export const AuthProvider = ({ children }) => {
         try {
             await axiosInstance.post("auth/logout");
             setUser(null);
-            toast.custom(() => (
-                <div className="my-toast my-toast-logout">
-                    👋 Logged out successfully!
-                </div>
-            ));
+            toast.success("Logged out successfully", { duration: 3000, position: "bottom-left" });
         } catch (err) {
             console.error("❌ Logout error:", err);
             toast.error("Logout failed");
@@ -309,9 +293,6 @@ export const AuthProvider = ({ children }) => {
                 forgotPassword,
                 resetPassword,
                 askAI,
-                navigationLoading,
-                startNavigation,
-                endNavigation,
                 sendVerificationEmail,
             }}
         >
