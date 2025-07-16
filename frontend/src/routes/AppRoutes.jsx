@@ -14,6 +14,9 @@ import { Toaster } from "react-hot-toast";
 import ResetPassword from "../pages/ResetPassword.jsx";
 import Contact from "../pages/Contact.jsx";
 import About from "../pages/About.jsx";
+import AllProducts from "../pages/products/AllProducts.jsx";
+import AdminPanel from "../pages/admin/AdminPanel.jsx";
+import ProductPage from "../pages/products/ProductPage.jsx";
 
 export default function AppRoutes() {
     return (
@@ -30,6 +33,9 @@ export default function AppRoutes() {
                     <Route path="/reset-password" element={<ResetPassword />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/accessories" element={<AllProducts />} />
+                    <Route path="/admin-panel" element={<ProtectedRoute requiredRole="ADMIN"><AdminPanel /></ProtectedRoute>} />
+                    <Route path="/products/:slug" element={<ProductPage />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Router>

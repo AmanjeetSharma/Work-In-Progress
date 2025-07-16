@@ -14,7 +14,7 @@ const createProduct = asyncHandler(async (req, res) => {
     const requiredFields = { name, brand, model, category, price };
     for (const [key, value] of Object.entries(requiredFields)) {
         if (value === undefined || value === null || (typeof value === "string" && !value.trim())) {
-            throw new ApiError(`${key} is required`);
+            throw new ApiError(400, `${key} is required`);
         }
     }
     const existingProduct = await Product.findOne({ name });
@@ -31,7 +31,20 @@ const createProduct = asyncHandler(async (req, res) => {
             }
         });
         console.log("❌ Deleted local files due to too many images uploaded.");
-        throw new ApiError("Maximum 3 product images are allowed.");
+        throw new ApiError(400, "Maximum 3 product images are allowed.");
+    }
+
+    // ✅ Check for duplicate file names
+    const fileNames = files.map(file => file.originalname);
+    const uniqueNames = new Set(fileNames);
+
+    if (uniqueNames.size !== fileNames.length) {
+        files.forEach(file => {
+            if (fs.existsSync(file.path)) {
+                fs.unlinkSync(file.path);
+            }
+        });
+        throw new ApiError(400, "Duplicate file names detected. Please use unique names for each file.");
     }
 
     let imageUrls = [];
@@ -45,7 +58,7 @@ const createProduct = asyncHandler(async (req, res) => {
                 if (fs.existsSync(file.path)) {
                     fs.unlinkSync(file.path);
                 }
-                throw new ApiError("Failed to upload images to Cloudinary.");
+                throw new ApiError(400, "Failed to upload images to Cloudinary.");
             }
 
             if (imagesResult && imagesResult.secure_url) {
@@ -108,7 +121,7 @@ const updateProduct = asyncHandler(async (req, res) => {
 
     const product = await Product.findById(productId);
     if (!product) {
-        throw new ApiError("Product not found");
+        throw new ApiError(404, "Product not found");
     }
 
     const files = req?.files?.productImages || [];
@@ -118,13 +131,23 @@ const updateProduct = asyncHandler(async (req, res) => {
                 fs.unlinkSync(file.path);
             }
         });
-        throw new ApiError("Maximum 3 product images are allowed.");
+        throw new ApiError(400, "Maximum 3 product images are allowed.");
+    }
+    // ✅ Check for duplicate file names
+    const fileNames = files.map(file => file.originalname);
+    const uniqueNames = new Set(fileNames);
+
+    if (uniqueNames.size !== fileNames.length) {
+        files.forEach(file => {
+            if (fs.existsSync(file.path)) {
+                fs.unlinkSync(file.path);
+            }
+        });
+        throw new ApiError(400, "Duplicate file names detected. Please use unique names for each file.");
     }
 
     let imageUrls = product.images;
     if (files.length > 0) {
-
-        imageUrls = [];
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
             const folderPath = `Work-in-Progress/products/${slugify(name || product.name, { lower: true, strict: true })}`;
@@ -134,7 +157,7 @@ const updateProduct = asyncHandler(async (req, res) => {
                 if (fs.existsSync(file.path)) {
                     fs.unlinkSync(file.path);
                 }
-                throw new ApiError("❌  Failed to upload images to Cloudinary.");
+                throw new ApiError(400, "❌  Failed to upload images to Cloudinary.");
             }
             if (result && result.secure_url) {
                 imageUrls.push(result.secure_url);
@@ -199,7 +222,7 @@ const updateProduct = asyncHandler(async (req, res) => {
 // ❌ Slow for backend and frontend to render, bad for performance, bad UX.
 
 const getAllProducts = asyncHandler(async (req, res) => {
-    const { search, category, tags, minPrice, maxPrice, page = 1, limit = 10 } = req.query;
+    const { search, category, tags, minPrice, maxPrice, page = 1, limit = 6 } = req.query;
 
     const queryObject = {};
 
@@ -264,9 +287,9 @@ const getProductBySlug = asyncHandler(async (req, res) => {
     const product = await Product.findOne({ slug });
 
     if (!product) {
-        throw new ApiError("Product not found");
+        throw new ApiError(404, "Product not found");
     }
-    console.log("Fetched product:", product);
+    console.log("Fetched product by slug:", product);
     return res
         .status(200)
         .json(new ApiResponse(200, product, "Product fetched successfully").toJSON());
@@ -285,7 +308,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
     console.log("Deleted product:", deletedProduct);
 
     if (!deletedProduct) {
-        throw new ApiError("Product not found or already deleted");
+        throw new ApiError(404, "Product not found or already deleted");
     }
 
     return res

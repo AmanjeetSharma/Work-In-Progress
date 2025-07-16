@@ -10,6 +10,9 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [products, setProducts] = useState([]);
+    const [productsLoading, setProductsLoading] = useState(false);
+    const [totalPages, setTotalPages] = useState(1);
 
     const isFirstFetch = useRef(true);// Track if it's the first fetch to avoid showing error on initial load
 
@@ -31,6 +34,22 @@ export const AuthProvider = ({ children }) => {
             isFirstFetch.current = false;
         }
     };
+
+    const fetchProducts = async (page = 1) => {
+        try {
+            setProductsLoading(true);
+            const res = await axiosInstance.get(`/products?page=${page}`);
+            setProducts(res.data.data.products || []);
+            setTotalPages(res.data.data.totalPages || 1);
+        } catch (error) {
+            console.error("❌ Failed to fetch products:", error);
+            toast.error(error?.response?.data?.message || "Failed to fetch products");
+        } finally {
+            setProductsLoading(false);
+        }
+    };
+
+
 
     useEffect(() => {
         fetchProfile();
@@ -267,13 +286,35 @@ export const AuthProvider = ({ children }) => {
     const sendVerificationEmail = async () => {
         try {
             console.log("reached till auth context sendVerificationEmail");
-            const response = await axiosInstance.post(`user/send-verification/${user._id}`);
-            return response.data.message;
+            const res = await axiosInstance.post(`user/send-verification/${user._id}`);
+            return res.data.message;
         } catch (error) {
             console.error("❌ Error sending verification email:", error);
             throw error;
         }
     };
+
+
+
+
+
+
+
+
+
+    const fetchProductBySlug = async (slug) => {
+        try {
+            const res = await axiosInstance.get(`/products/${slug}`);
+            return res.data.data;
+        } catch (error) {
+            console.error("Failed to fetch product by slug", error);
+            throw error;
+        }
+    };
+
+
+
+
 
     return (
         <AuthContext.Provider
@@ -294,6 +335,11 @@ export const AuthProvider = ({ children }) => {
                 resetPassword,
                 askAI,
                 sendVerificationEmail,
+                products,
+                productsLoading,
+                fetchProducts,
+                totalPages,
+                fetchProductBySlug,
             }}
         >
             {children}

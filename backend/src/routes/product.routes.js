@@ -24,7 +24,7 @@ router.patch(
     "/:productId",
     verifyToken,
     authorizeRoles("ADMIN"),
-    upload.fields([{ name: "images", maxCount: 3 }]),
+    upload.fields([{ name: "productImages", maxCount: 3 }]),
     updateProduct
 );
 
