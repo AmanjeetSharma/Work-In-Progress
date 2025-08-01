@@ -1,7 +1,19 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useCart } from "../../context/CartContext";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 export default function ProductModal({ product, isOpen, onClose }) {
+  const { addToCart, cartItems, isAuthenticated } = useCart();
+  const [quantity, setQuantity] = useState(1);
+  const [isAdding, setIsAdding] = useState(false);
+  const [isBuying, setIsBuying] = useState(false);
+  const navigate = useNavigate();
+
+  // Check if product is already in cart
+  const isInCart = cartItems?.some((item) => item.productId === product?._id) || false;
+
   // Handle ESC key press
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -20,6 +32,72 @@ export default function ProductModal({ product, isOpen, onClose }) {
       document.body.style.overflow = "auto";
     };
   }, [isOpen, onClose]);
+
+  // Reset quantity when product changes
+  useEffect(() => {
+    setQuantity(1);
+  }, [product]);
+
+  const showLoginToast = () => {
+    toast.error("Please login to continue", {
+      position: "bottom-left",
+      duration: 4000,
+      icon: "🔒",
+    });
+
+  };
+
+  const handleAddToCart = async () => {
+    if (!isAuthenticated) {
+      showLoginToast();
+      return;
+    }
+
+    setIsAdding(true);
+    try {
+      await addToCart(product._id, quantity);
+      await fetchCart(); // Refresh cart after adding
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    } finally {
+      setIsAdding(false);
+    }
+  };
+
+  const handleBuyNow = async () => {
+    if (!isAuthenticated) {
+      showLoginToast();
+      return;
+    }
+
+    // setIsBuying(true);
+    // try {
+    //   if (!isInCart) {
+    //     await addToCart(product._id, quantity);
+    //   }
+    //   onClose();
+    //   navigate("/checkout");
+    // } catch (error) {
+    //   console.error("Error during buy now:", error);
+    //   toast.error("Failed to proceed to checkout", {
+    //     position: "top-right",
+    //     autoClose: 2000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "colored",
+    //   });
+    // } finally {
+    //   setIsBuying(false);
+    // }
+  };
+
+
+
+  // const handleBuyNow = async () => {
+  // }
 
   // Animation variants
   const backdropVariants = {
@@ -144,7 +222,7 @@ export default function ProductModal({ product, isOpen, onClose }) {
                   </motion.h2>
                   <motion.button
                     onClick={onClose}
-                    className="text-gray-400 hover:text-white text-xl transition-colors"
+                    className="text-gray-400 hover:text-white text-xl transition-colors cursor-pointer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     initial={{ opacity: 0 }}
@@ -206,16 +284,112 @@ export default function ProductModal({ product, isOpen, onClose }) {
                   </motion.div>
                 )}
 
-                {/* Add to cart */}
+                {/* Quantity Selector */}
                 <motion.div
+                  className="flex items-center gap-4 mb-6"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.85 }}
+                >
+                  <label className="text-slate-300">Quantity:</label>
+                  <div className="flex items-center border border-slate-600 rounded-lg overflow-hidden">
+                    <button
+                      className="px-3 py-1 bg-slate-700 hover:bg-slate-600 text-white disabled:opacity-50"
+                      onClick={() => setQuantity((q) => Math.max(1, q - 1))}
+                      disabled={quantity <= 1}
+                    >
+                      -
+                    </button>
+                    <span className="px-4 py-1 bg-slate-800 text-white">
+                      {quantity}
+                    </span>
+                    <button
+                      className="px-3 py-1 bg-slate-700 hover:bg-slate-600 text-white"
+                      onClick={() => setQuantity((q) => q + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                </motion.div>
+
+                {/* Action Buttons */}
+                <motion.div
+                  className="flex flex-col gap-3"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.9 }}
                 >
                   <button
-                    className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-medium py-3 rounded-lg shadow-lg transition-all duration-300 hover:shadow-cyan-500/20 active:scale-95"
+                    className={`w-full ${isInCart
+                      ? "bg-emerald-600 hover:bg-emerald-500"
+                      : "bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500"
+                      } text-white font-medium py-3 rounded-lg shadow-lg transition-all duration-300 hover:shadow-cyan-500/20 active:scale-95 cursor-pointer flex items-center justify-center gap-2`}
+                    onClick={handleAddToCart}
+                    disabled={isAdding || isBuying}
                   >
-                    Add to Cart
+                    {isAdding ? (
+                      <>
+                        <svg
+                          className="animate-spin h-5 w-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Adding...
+                      </>
+                    ) : isInCart ? (
+                      "✓ Added to Cart"
+                    ) : (
+                      "Add to Cart"
+                    )}
+                  </button>
+
+                  <button
+                    className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-medium py-3 rounded-lg shadow-lg transition-all duration-300 hover:shadow-purple-500/20 active:scale-95 cursor-pointer flex items-center justify-center gap-2"
+
+                    disabled={isAdding || isBuying}
+                  >
+                    {isBuying ? (
+                      <>
+                        <svg
+                          className="animate-spin h-5 w-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Processing...
+                      </>
+                    ) : (
+                      "Buy Now"
+                    )}
                   </button>
                 </motion.div>
               </motion.div>

@@ -61,7 +61,7 @@ const updateProfile = asyncHandler(async (req, res) => {
 
 const getProfile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id).select("-password -sessions");
-    console.log("Fetching user profile for:", user);
+    // console.log("Fetching user profile for:", user);
     if (!user) {
         throw new ApiError(404, "User not found");
     }

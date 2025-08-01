@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
+import { useCart } from "../context/CartContext"; // Import useCart
 import defaultAvatar from "../assets/default-avatar.png";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -14,6 +15,7 @@ import {
     FaFacebook,
     FaTwitter,
     FaInstagram,
+    FaShoppingCart, // Add cart icon
 } from "react-icons/fa";
 import { IoIosClose } from "react-icons/io";
 import { PiDotsThreeBold } from "react-icons/pi";
@@ -21,6 +23,7 @@ import GradientText from "./Animations/GradientText.jsx";
 
 export default function Navbar() {
     const { user, logout } = useAuth();
+    const { cart, cartCount, cartLoading } = useCart(); // Get cart data
     const navigate = useNavigate();
     const location = useLocation();
     const [open, setOpen] = useState(false);
@@ -64,14 +67,35 @@ export default function Navbar() {
         <>
             <nav className="fixed top-0 left-0 right-0 flex items-center justify-between px-4 sm:px-6 py-3 z-40 bg-gray-900/80 backdrop-blur-md border-b border-cyan-400/50 shadow-lg">
                 {/* Logo */}
-                <div className="flex items-center h-12"> {/* Fixed height container */}
+                <div className="flex items-center h-12">
                     <Link to="/" className="flex items-center space-x-2 cursor-pointer">
                         <GradientText>Work-in-Progress</GradientText>
                     </Link>
                 </div>
 
                 {/* Desktop Navigation - Guest dropdown menu */}
-                <div className="hidden md:flex items-center h-12"> {/* Fixed height container */}
+                <div className="hidden md:flex items-center h-12 space-x-4">
+                    {/* Cart Icon - Only for logged in users */}
+                    {user && (
+                        <motion.div
+                            className="relative"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <button
+                                onClick={() => navigate("/cart")}
+                                className="p-2 rounded-full hover:bg-gray-700/50 text-white focus:outline-none transition-all duration-300 h-10 w-10 flex items-center justify-center cursor-pointer relative"
+                            >
+                                <FaShoppingCart className="w-5 h-5" />
+                                {!cartLoading && cartCount > 0 && (
+                                    <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                                        {cartCount}
+                                    </span>
+                                )}
+                            </button>
+                        </motion.div>
+                    )}
+
                     {!user ? (
                         <div className="relative" ref={guestDropdownRef}>
                             <button
@@ -101,6 +125,12 @@ export default function Navbar() {
                                         className="absolute right-0 mt-2 w-48 bg-gray-800 text-white rounded-lg shadow-xl z-20 overflow-hidden border border-cyan-400/20"
                                     >
                                         <div className="py-2">
+                                            <button
+                                                onClick={() => handleNavigation("/accessories")}
+                                                className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-gray-700/60 cursor-pointer transition-colors hover:border-l-1 hover:border-r-1 border-cyan-400/80"
+                                            >
+                                                🛍️ Accessories
+                                            </button>
                                             <button
                                                 onClick={() => handleNavigation("/about")}
                                                 className="flex items-center gap-2 w-full text-left px-4 py-2 hover:bg-gray-700/60 cursor-pointer transition-colors hover:border-l-1 hover:border-r-1 border-cyan-400/80"
@@ -142,7 +172,7 @@ export default function Navbar() {
                         /* Userdropdown menu */
                         <div className="relative" ref={dropdownRef}>
                             <motion.div
-                                className="flex items-center space-x-2 cursor-pointer group h-10" // Fixed height
+                                className="flex items-center space-x-2 cursor-pointer group h-10"
                                 onClick={() => setOpen((prev) => !prev)}
                                 whileHover={{ scale: 1.05 }}
                             >
@@ -251,7 +281,7 @@ export default function Navbar() {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-white p-2 focus:outline-none h-10 flex items-center justify-center" // Fixed height
+                    className="md:hidden text-white p-2 focus:outline-none h-10 flex items-center justify-center"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     aria-label="Toggle menu"
                 >
@@ -283,9 +313,36 @@ export default function Navbar() {
                             <IoIosClose className="w-6 h-6" />
                         </button>
 
+                        {/* Add Cart to Mobile Menu for logged in users */}
+                        {user && (
+                            <button
+                                onClick={() => {
+                                    handleNavigation("/cart");
+                                    setMobileMenuOpen(false);
+                                }}
+                                className="flex items-center gap-3 text-left py-3 px-4 text-white hover:bg-gray-800/50 rounded-lg transition-colors mb-4 w-full border border-cyan-400/30"
+                            >
+                                <div className="relative">
+                                    <FaShoppingCart className="text-lg text-cyan-300" />
+                                    {!cartLoading && cartCount > 0 && (
+                                        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                                            {cartCount}
+                                        </span>
+                                    )}
+                                </div>
+                                <span>My Cart ({cartCount})</span>
+                            </button>
+                        )}
+
                         <div className="flex flex-col space-y-2">
                             {!user ? (
                                 <>
+                                    <button
+                                        onClick={() => handleNavigation("/accessories")}
+                                        className="flex items-center gap-3 text-left py-3 px-4 text-white hover:bg-gray-800/50 rounded-lg transition-colors"
+                                    >
+                                        🛍️ Accessories
+                                    </button>
                                     <button
                                         onClick={() => handleNavigation("/about")}
                                         className="flex items-center gap-3 text-left py-3 px-4 text-white hover:bg-gray-800/50 rounded-lg transition-colors"

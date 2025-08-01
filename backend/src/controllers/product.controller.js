@@ -289,7 +289,7 @@ const getProductBySlug = asyncHandler(async (req, res) => {
     if (!product) {
         throw new ApiError(404, "Product not found");
     }
-    console.log("Fetched product by slug:", product);
+    // console.log("Fetched product by slug:", product);
     return res
         .status(200)
         .json(new ApiResponse(200, product, "Product fetched successfully").toJSON());
@@ -318,4 +318,136 @@ const deleteProduct = asyncHandler(async (req, res) => {
 
 
 
-export { createProduct, updateProduct, getAllProducts, getProductBySlug, deleteProduct };
+
+
+// Review controller functions
+
+const addOrUpdateReview = asyncHandler(async (req, res) => {
+    const { slug } = req.params;
+    const { rating, comment } = req.body;
+    const userId = req.user._id;
+
+    const product = await Product.findOne({ slug });
+    if (!product) {
+        throw new ApiError(404, "Product not found");
+    }
+
+    const existingReview = product.reviews.find(
+        r => r.user.toString() === userId.toString()
+    );
+
+    if (existingReview) {
+        existingReview.rating = rating;
+        existingReview.comment = comment;
+        existingReview.updatedAt = Date.now();
+    } else {
+        product.reviews.push({
+            user: userId,
+            name: req.user.name,
+            rating,
+            comment
+        });
+        product.reviewsCount = product.reviews.length;
+    }
+
+    product.rating = product.reviews.reduce((acc, r) => acc + r.rating, 0) / product.reviews.length;
+
+    await product.save();
+    console.log(`Review ${existingReview ? "updated" : "added"} for product: ${product.name} by username: ${req.user.name}`);
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(
+                200,
+                {
+                    reviews: product.reviews,
+                    rating: product.rating,
+                    reviewsCount: product.reviews.length
+                },
+                existingReview ? "Review updated" : "Review added"
+            )
+        );
+
+});
+
+
+
+
+
+
+
+const deleteReview = asyncHandler(async (req, res) => {
+    const { slug } = req.params;
+    const userId = req.user._id;
+
+    const product = await Product.findOne({ slug });
+    if (!product) {
+        throw new ApiError(404, "Product not found");
+    }
+
+    const reviewIndex = product.reviews.findIndex(
+        r => r.user.toString() === userId.toString()
+    );
+
+    if (reviewIndex === -1) {
+        throw new ApiError(404, "Review not found");
+    }
+
+    product.reviews.splice(reviewIndex, 1);
+
+    if (product.reviews.length > 0) {
+        product.rating = product.reviews.reduce((acc, r) => acc + r.rating, 0) / product.reviews.length;
+    } else {
+        product.rating = 0;
+    }
+
+    product.reviewsCount = product.reviews.length;
+
+    await product.save();
+
+    console.log(`Deleted review for product: ${product.name} by user: ${userId}`);
+    return res.status(200).json(
+        new ApiResponse(200, {
+            reviews: product.reviews,
+            rating: product.rating,
+            reviewsCount: product.reviewsCount,
+        }, "Review deleted")
+    );
+
+});
+
+
+
+
+
+
+
+
+
+const getProductReviews = asyncHandler(async (req, res) => {
+    const { slug } = req.params;
+
+    const product = await Product.findOne({ slug })
+    if (!product) {
+        throw new ApiError(404, "Product not found");
+    }
+    console.log(`Fetched reviews for product: ${product.slug} total reviews: ${product.reviews.length}`);
+    return res.status(200).json(
+        new ApiResponse(200, { reviews: product.reviews, rating: product.rating, reviewsCount: product.reviewsCount }, "Reviews fetched")
+    );
+});
+
+
+
+
+
+export {
+    createProduct,
+    updateProduct,
+    getAllProducts,
+    getProductBySlug,
+    deleteProduct,
+    addOrUpdateReview,
+    deleteReview,
+    getProductReviews
+};

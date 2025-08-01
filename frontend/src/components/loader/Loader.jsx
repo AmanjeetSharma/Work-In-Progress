@@ -3,9 +3,7 @@ import "./Loader.css";
 
 const LoaderPage = () => {
     return (
-        <div className="min-h-screen bg-slate-900 flex items-center justify-center" style={{ backdropFilter: "blur(4px)" }}>
             <Loader />
-        </div>
     );
 };
 

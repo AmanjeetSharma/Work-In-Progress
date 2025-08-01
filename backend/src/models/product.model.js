@@ -1,5 +1,39 @@
 import mongoose from "mongoose";
 
+const reviewSchema = new mongoose.Schema(
+  {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    rating: {
+      type: Number,
+      required: true,
+      min: 1,
+      max: 5
+    },
+    comment: {
+      type: String,
+      trim: true
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now
+    },
+    updatedAt: {
+      type: Date,
+      default: Date.now
+    }
+
+  },
+  { _id: false }
+);
+
 const productSchema = new mongoose.Schema(
   {
     name: {
@@ -76,18 +110,18 @@ const productSchema = new mongoose.Schema(
       min: [0, "Rating must be at least 0"],
       max: [5, "Rating cannot exceed 5"],
     },
-    reviews: {
+    reviewsCount: {
       type: Number,
       default: 0,
-      min: [0, "Reviews count cannot be negative"],
+      min: [0, "Review count cannot be negative"],
     },
+    reviews: [reviewSchema],
     aiMeta: {
       aiSummary: { type: String, default: "" },
       aiTags: { type: [String], default: [] },
       keywordsEmbedding: { type: [Number], default: [] },
-      descriptionGenerated: { type: Boolean, default: false }
+      descriptionGenerated: { type: Boolean, default: false },
     },
-
   },
   {
     timestamps: true,

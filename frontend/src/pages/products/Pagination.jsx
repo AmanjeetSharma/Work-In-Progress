@@ -42,7 +42,7 @@ export default function Pagination({ currentPage, onPageChange, totalPages = 1 }
               whileHover="hover"
               whileTap="active"
               variants={buttonVariants}
-              className={`px-3 py-2 rounded-md font-medium transition-all duration-200 ${
+              className={`px-5 py-2 rounded-md font-medium transition-all duration-200 ${
                 page === currentPage
                   ? "bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/20"
                   : "bg-slate-800 text-slate-300 hover:bg-slate-700"

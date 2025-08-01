@@ -81,17 +81,7 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await axiosInstance.post("auth/login", data);
             await fetchProfile(); // Will refresh user's profile after login
-            toast.custom((t) => (
-                <div
-                    onClick={() => toast.dismiss(t.id)}
-                    className="my-toast my-toast-success"
-                >
-                    🎉 Login successful!
-                </div>
-            ), {
-                duration: 3000,
-                position: "bottom-left",
-            });
+            toast.success("Login successful!", { duration: 3000, position: "bottom-left" });
         } catch (err) {
             console.error("❌ Login error:", err);
             const msg = err?.response?.data?.message || "Login failed";
@@ -316,6 +306,54 @@ export const AuthProvider = ({ children }) => {
 
 
 
+
+
+    const addOrUpdateReview = async (slug, rating, comment) => {
+        try {
+            const response = await axiosInstance.post(`/products/${slug}/reviews`, {
+                rating,
+                comment
+            });
+            toast.success("Review submitted");
+            return response.data;
+        } catch (error) {
+            toast.error("Failed to submit review");
+            throw error.response?.data?.message || error.message;
+        }
+    };
+
+
+
+
+    const deleteReview = async (slug) => {
+        try {
+            const response = await axiosInstance.delete(`/products/${slug}/reviews/delete`);
+            console.log("Review deleted successfully:", response.data);
+            toast.success("Review deleted successfully!");
+            return response.data;
+        } catch (error) {
+            toast.error("Failed to delete review");
+            throw error.response?.data?.message || error.message;
+        }
+    };
+
+
+
+
+
+    const getAllReviews = async (slug) => {
+        try {
+            const response = await axiosInstance.get(`/products/${slug}/reviews`);
+            return response.data;
+        } catch (error) {
+            throw error.response?.data?.message || error.message;
+        }
+    };
+
+
+
+
+
     return (
         <AuthContext.Provider
             value={{
@@ -340,6 +378,9 @@ export const AuthProvider = ({ children }) => {
                 fetchProducts,
                 totalPages,
                 fetchProductBySlug,
+                addOrUpdateReview,
+                deleteReview,
+                getAllReviews
             }}
         >
             {children}
