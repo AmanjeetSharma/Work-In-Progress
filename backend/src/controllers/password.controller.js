@@ -7,6 +7,11 @@ import sendEmail from "../utils/sendEmail.js";
 import bcrypt from "bcrypt";
 import { resetPassHtml } from "../utils/email/resetPasswordEmail.js";
 
+
+
+
+
+
 const forgotPassword = asyncHandler(async (req, res) => {
     const { email } = req.body;
 
@@ -19,22 +24,17 @@ const forgotPassword = asyncHandler(async (req, res) => {
         throw new ApiError(404, "User with this email does not exist");
     }
 
-    // Generate token
     const resetToken = crypto.randomBytes(32).toString("hex");
 
-    // Hash token to store in DB (security best practice)
     const hashedToken = crypto.createHash("sha256").update(resetToken).digest("hex");
 
-    // Save hashed token and expiry
     user.resetPasswordToken = hashedToken;
     user.resetPasswordExpires = Date.now() + 3 * 60 * 1000;
 
     await user.save();
 
-    // Create reset URL
     const resetUrl = `${process.env.FRONTEND_URL}/reset-password?token=${resetToken}`;
 
-    // Send email
     const html = resetPassHtml(resetUrl);
 
     await sendEmail(user.email, "Password Reset Request", html, true);
@@ -49,6 +49,13 @@ const forgotPassword = asyncHandler(async (req, res) => {
 
 
 
+
+
+
+
+
+
+
 const resetPassword = asyncHandler(async (req, res) => {
     const { token, newPassword, confirmPassword } = req.body;
 
@@ -56,15 +63,12 @@ const resetPassword = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Token, new password, and confirm password are required");
     }
 
-    // Check if newPassword and confirmPassword match
     if (newPassword !== confirmPassword) {
         throw new ApiError(400, "New password and confirm password do not match");
     }
 
-    // Hash the token to match stored hash
     const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
 
-    // Find user with this token and token not expired
     const user = await User.findOne({
         resetPasswordToken: hashedToken,
         resetPasswordExpires: { $gt: Date.now() }
@@ -74,7 +78,6 @@ const resetPassword = asyncHandler(async (req, res) => {
         throw new ApiError(400, "Invalid or expired token");
     }
 
-    // Set new password
     user.password = await bcrypt.hash(newPassword, 10);
     user.resetPasswordToken = null;
     user.resetPasswordExpires = null;

@@ -13,6 +13,10 @@ const formatCartResponse = (cart) => ({
     totalAmount: cart.totalAmount
 });
 
+
+
+
+
 const addToCart = asyncHandler(async (req, res) => {
     const userId = req.user._id;
     const { productId, quantity } = req.body;
@@ -72,6 +76,19 @@ const addToCart = asyncHandler(async (req, res) => {
     );
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 const getCart = asyncHandler(async (req, res) => {
     const userId = req.user._id;
 
@@ -90,6 +107,18 @@ const getCart = asyncHandler(async (req, res) => {
         new ApiResponse(200, formatCartResponse(cart), "Cart fetched successfully")
     );
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 const updateCartItem = asyncHandler(async (req, res) => {
     const userId = req.user._id;
@@ -125,6 +154,16 @@ const updateCartItem = asyncHandler(async (req, res) => {
     );
 });
 
+
+
+
+
+
+
+
+
+
+
 const removeCartItem = asyncHandler(async (req, res) => {
     const userId = req.user._id;
     const { productId } = req.params;
@@ -150,6 +189,17 @@ const removeCartItem = asyncHandler(async (req, res) => {
     );
 });
 
+
+
+
+
+
+
+
+
+
+
+
 const clearCart = asyncHandler(async (req, res) => {
     const userId = req.user._id;
     const cart = await Cart.findOne({ user: userId });
@@ -166,6 +216,14 @@ const clearCart = asyncHandler(async (req, res) => {
         }, "Cart cleared")
     );
 });
+
+
+
+
+
+
+
+
 
 export {
     addToCart,

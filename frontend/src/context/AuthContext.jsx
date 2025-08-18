@@ -354,6 +354,88 @@ export const AuthProvider = ({ children }) => {
 
 
 
+
+
+
+
+
+
+
+
+    const createProduct = async (productData, images) => {
+        try {
+            const formData = new FormData();
+            Object.entries(productData).forEach(([key, value]) => {
+                if (key === 'specs') {
+                    formData.append(key, JSON.stringify(value));
+                } else {
+                    formData.append(key, value);
+                }
+            });
+
+            if (images) {
+                images.forEach(image => {
+                    formData.append('productImages', image);
+                });
+            }
+
+            await axiosInstance.post('/products', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+        } catch (error) {
+            throw error.response?.data?.message || error.message;
+        }
+    };
+
+
+
+
+    const updateProduct = async (productId, productData, images) => {
+        try {
+            const formData = new FormData();
+            Object.entries(productData).forEach(([key, value]) => {
+                if (key === 'specs') {
+                    formData.append(key, JSON.stringify(value));
+                } else {
+                    formData.append(key, value);
+                }
+            });
+
+            if (images) {
+                images.forEach(image => {
+                    formData.append('productImages', image);
+                });
+            }
+
+            await axiosInstance.patch(`/products/${productId}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+        } catch (error) {
+            throw error.response?.data?.message || error.message;
+        }
+    };
+
+
+
+
+
+    const deleteProduct = async (productId) => {
+        try {
+            await axiosInstance.delete(`/products/${productId}`);
+        } catch (error) {
+            throw error.response?.data?.message || error.message;
+        }
+    };
+
+
+
+
+    
+
     return (
         <AuthContext.Provider
             value={{
@@ -380,7 +462,10 @@ export const AuthProvider = ({ children }) => {
                 fetchProductBySlug,
                 addOrUpdateReview,
                 deleteReview,
-                getAllReviews
+                getAllReviews,
+                createProduct,
+                updateProduct,
+                deleteProduct
             }}
         >
             {children}

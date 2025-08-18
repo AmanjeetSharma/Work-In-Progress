@@ -17,6 +17,15 @@ const createProduct = asyncHandler(async (req, res) => {
             throw new ApiError(400, `${key} is required`);
         }
     }
+
+    if (typeof specs === "string") {
+        try {
+            specs = JSON.parse(specs);
+        } catch (e) {
+            specs = {};
+        }
+    }
+
     const existingProduct = await Product.findOne({ name });
 
     if (existingProduct) {
@@ -99,9 +108,11 @@ const createProduct = asyncHandler(async (req, res) => {
         }
     });
 
-    return res
-        .status(201)
-        .json(new ApiResponse(201, newProduct, "Product created successfully").toJSON());
+    return res.status(201).json({
+        message: "Product created successfully",
+        product: newProduct
+    });
+
 });
 
 
@@ -117,11 +128,19 @@ const createProduct = asyncHandler(async (req, res) => {
 
 const updateProduct = asyncHandler(async (req, res) => {
     const { productId } = req.params;
-    const { name, brand, model, category, price, discount, specs, description, tags, searchKeywords, stock } = req.body;
+    let { name, brand, model, category, price, discount, specs, description, tags, searchKeywords, stock } = req.body;
 
     const product = await Product.findById(productId);
     if (!product) {
         throw new ApiError(404, "Product not found");
+    }
+
+    if (typeof specs === "string") {
+        try {
+            specs = JSON.parse(specs);
+        } catch (e) {
+            specs = {};
+        }
     }
 
     const files = req?.files?.productImages || [];
@@ -200,9 +219,11 @@ const updateProduct = asyncHandler(async (req, res) => {
 
     await product.save();
 
-    return res
-        .status(200)
-        .json(new ApiResponse(200, product, "Product updated successfully").toJSON());
+    return res.status(200).json({
+        message: "Product updated successfully",
+        product: product
+    });
+
 });
 
 
