@@ -14,8 +14,10 @@ import {
     FiCheckCircle,
     FiXCircle,
     FiAlertTriangle,
+    FiCopy,
+    FiX
 } from "react-icons/fi";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
 
 export default function Profile() {
@@ -45,6 +47,27 @@ export default function Profile() {
     const fileInputRef = useRef(null);
     const [verificationMessage, setVerificationMessage] = useState("");
     const [isSendingVerification, setIsSendingVerification] = useState(false);
+
+    const [isAvatarZoomed, setIsAvatarZoomed] = useState(false);
+    const avatarRef = useRef(null);
+    const handleAvatarClick = () => {
+        setIsAvatarZoomed(true);
+    };
+
+    const closeZoomedAvatar = () => {
+        setIsAvatarZoomed(false);
+    };
+
+    const copyAvatarUrl = async () => {
+        try {
+            const avatarUrl = user.avatar || defaultAvatar;
+            await navigator.clipboard.writeText(avatarUrl);
+            toast.success('Avatar URL copied to clipboard!');
+            setIsAvatarZoomed(false);
+        } catch (err) {
+            toast.error('Failed to copy avatar URL');
+        }
+    };
 
     const loadSessions = async () => {
         try {
@@ -199,10 +222,14 @@ export default function Profile() {
                             <div className="flex flex-col md:flex-row items-start md:items-end gap-6">
                                 {/* Large Profile Picture */}
                                 <div className="relative group">
-                                    <img
+                                    <motion.img
+                                        ref={avatarRef}
                                         src={user.avatar || defaultAvatar}
                                         alt="Avatar"
-                                        className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-gray-800 shadow-lg object-cover"
+                                        className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-gray-800 shadow-lg object-cover cursor-pointer"
+                                        onClick={handleAvatarClick}
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                     />
                                     <button
                                         onClick={openEdit}
@@ -212,6 +239,50 @@ export default function Profile() {
                                         <FiCamera className="text-white" size={16} />
                                     </button>
                                 </div>
+                                {/* Zoomed Avatar Modal */}
+                                <AnimatePresence>
+                                    {isAvatarZoomed && (
+                                        <motion.div
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+                                            onClick={closeZoomedAvatar}
+                                        >
+                                            <motion.div
+                                                initial={{ scale: 0.9 }}
+                                                animate={{ scale: 1 }}
+                                                exit={{ scale: 0.9 }}
+                                                className="relative max-w-4xl max-h-[90vh]"
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                <img
+                                                    src={user.avatar || defaultAvatar}
+                                                    alt="Zoomed Avatar"
+                                                    className="max-w-full max-h-[80vh] object-contain rounded-lg"
+                                                />
+                                                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4">
+                                                    <motion.button
+                                                        onClick={copyAvatarUrl}
+                                                        className="p-3 bg-gray-800 hover:bg-gray-700 text-white rounded-full flex items-center gap-2"
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                    >
+                                                        <FiCopy /> Copy URL
+                                                    </motion.button>
+                                                    <motion.button
+                                                        onClick={closeZoomedAvatar}
+                                                        className="p-3 bg-gray-800 hover:bg-gray-700 text-white rounded-full flex items-center gap-2"
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                    >
+                                                        <FiX /> Close
+                                                    </motion.button>
+                                                </div>
+                                            </motion.div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
 
                                 {/* User Info */}
                                 <div className="flex-1">
