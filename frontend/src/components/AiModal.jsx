@@ -26,7 +26,7 @@ export default function AIModal({ onClose }) {
         } catch (error) {
             setMessages(prev => [...prev, {
                 role: 'assistant',
-                content: '❌ Error: Could not connect to the AI service. Please try again later.'
+                content: '❌ Error: Could not connect to the AI service. Please try again later...'
             }]);
         } finally {
             setLoading(false);
