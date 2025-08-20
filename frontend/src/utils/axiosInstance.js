@@ -2,8 +2,9 @@
 import axios from 'axios';
 import refreshToken from './refreshToken'; // Import the refreshToken utility
 
+
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api/v1', // Your backend API base URL
+  baseURL: import.meta.env.VITE_API_URL, // Your backend API base URL
   withCredentials: true, // Send cookies with every request (important for sending refresh token)
 });
 
