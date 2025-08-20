@@ -6,7 +6,7 @@ import ProductGallery from "./ProductGallery.jsx";
 import ProductInfo from "./ProductInfo.jsx";
 import ReviewSection from "./ReviewSection.jsx";
 import Loader from "../../../components/loader/Loader.jsx"
-import GoBackButton from "../../../components/Buttons/GoBackButton.jsx"; // Importing the GoBackButton component
+import GoBackButton from "../../../components/Buttons/GobackButton.jsx"; // Importing the GoBackButton component
 
 export default function ProductPage() {
     const { slug } = useParams();
