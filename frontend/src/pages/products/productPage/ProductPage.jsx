@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useAuth } from "../../../context/AuthContext.jsx";
-import { FaChevronLeft } from "react-icons/fa";
-import ProductGallery from "./ProductGallery";
-import ProductInfo from "./ProductInfo";
-import ReviewSection from "./ReviewSection";
+import ProductGallery from "./ProductGallery.jsx";
+import ProductInfo from "./ProductInfo.jsx";
+import ReviewSection from "./ReviewSection.jsx";
 import Loader from "../../../components/loader/Loader.jsx"
 import GoBackButton from "../../../components/Buttons/GoBackButton.jsx"; // Importing the GoBackButton component
 

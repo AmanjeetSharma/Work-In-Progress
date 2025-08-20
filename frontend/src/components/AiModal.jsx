@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext.jsx';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FiSend, FiLoader, FiX, FiCode, FiMessageSquare } from 'react-icons/fi';
-import { Prism as SyntaxHighlighter } from 'prism-react-renderer';
 
 export default function AIModal({ onClose }) {
     const { askAI } = useAuth();

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
-import { useCart } from "../context/CartContext"; // Import useCart
+import { useCart } from "../context/CartContext.jsx"; // Import useCart
 import defaultAvatar from "../assets/default-avatar.png";
 import { motion, AnimatePresence } from "framer-motion";
 import {
