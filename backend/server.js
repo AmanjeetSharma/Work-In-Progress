@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import connectDB from "./src/config/db.js";
 import { app } from "./src/app.js";
 import chalk from "chalk";
+import launchPage from "./seed/launchPage.js";
 
 dotenv.config({
     path: "./.env"
@@ -9,7 +10,7 @@ dotenv.config({
 
 
 app.get("/", (req, res) => {
-    res.send('<h1 style="background-color: red; color: white; text-align: center">Hello World!</h1>');  //for testing
+    res.send(launchPage);
 });
 
 connectDB()
