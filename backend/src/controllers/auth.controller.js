@@ -188,8 +188,9 @@ const login = asyncHandler(async (req, res) => {
     // Set cookies
     const options = {
         httpOnly: true,
-        secure: false, // set to true in production
-        sameSite: 'strict',
+        secure: true, // set to true in production
+        sameSite: 'None',
+        path: '/',
     };
 
     console.log(`✅  ${user.name} logged in successfully. Device: ${device || "Unknown Device"}`);
@@ -240,8 +241,9 @@ const logout = asyncHandler(async (req, res) => {
     }
     const options = {
         httpOnly: true,
-        secure: false, // set to true in production
-        sameSite: 'strict',
+        secure: true, // set to true in production
+        sameSite: 'None',
+        path: '/',
     };
 
     console.log(`✅  ${user.name} logged out successfully from device: ${session?.device || "Unknown Device"}`);
@@ -288,8 +290,9 @@ const logoutAllDevices = asyncHandler(async (req, res) => {
 
     const options = {
         httpOnly: true,
-        secure: false, // Set to true in production
-        sameSite: 'strict',
+        secure: true, // Set to true in production
+        sameSite: 'None',
+        path: '/',
     };
 
     console.log(`✅  ${user.name} logged out successfully from all devices: ${user.sessions.map(s => s.device || "Unknown Device").join(", ")}`);
