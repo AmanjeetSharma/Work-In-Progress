@@ -342,8 +342,9 @@ const refresh = asyncHandler(async (req, res) => {
         .status(200)
         .cookie("accessToken", newAccessToken, {
             httpOnly: true,
-            secure: false, // set to true in production
-            sameSite: 'strict',
+            secure: true, // set to true in production
+            sameSite: 'None',
+            Path: '/',
         })
         .json(new ApiResponse(200, { accessToken: newAccessToken }, "✅  Access token refreshed successfully"));
 });
