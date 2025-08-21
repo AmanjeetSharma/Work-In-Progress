@@ -1,0 +1,80 @@
+
+
+.light-button button.bt {
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    outline: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.light-button button.bt .button-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100px;
+    background-color: #0a0a0a;
+    border-radius: 10px;
+    color: #0f0f0f;
+    font-weight: 700;
+    transition: 300ms;
+    outline: #9d00ff 2px solid;
+    outline-offset: 20;
+}
+
+.light-button button.bt .button-holder svg {
+    height: 50px;
+    transition: 300ms;
+}
+
+.light-button button.bt .light-holder {
+    position: absolute;
+    height: 200px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.light-button button.bt .light-holder .dot {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #0a0a0a;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.light-button button.bt .light-holder .light {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 200px;
+    clip-path: polygon(50% 0%, 25% 100%, 75% 100%);
+    background: transparent;
+}
+
+/* Hover Glow */
+.light-button button.bt .button-holder svg {
+    fill: #8400ff;
+    /* purple icon */
+}
+
+.light-button button.bt:hover .button-holder {
+    color: #8a2be2;
+    outline: #8a2be2 2px solid;
+    outline-offset: 2px;
+}
+
+.light-button button.bt:hover .light-holder .light {
+    background: linear-gradient(180deg,
+            rgba(138, 43, 226, 1) 0%,
+            rgba(0, 191, 255, 0.8) 40%,
+            rgba(255, 255, 255, 0) 100%);
+}

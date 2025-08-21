@@ -1,4 +1,5 @@
 import React from 'react'
+import './JellyFish.css'; // Assuming you have a CSS file for styles
 
 const JellyFish = () => {
     return (
