@@ -80,8 +80,16 @@ const AuthProvider = ({ children }) => {
     const login = async (data) => {
         try {
             const res = await axiosInstance.post("auth/login", data);
+
+            // Store tokens in localStorage as fallback for mobile
+            if (res.data.data.accessToken && res.data.data.refreshToken) {
+                localStorage.setItem('accessToken', res.data.data.accessToken);
+                localStorage.setItem('refreshToken', res.data.data.refreshToken);
+            }
+
             await fetchProfile(); // Will refresh user's profile after login
             toast.success("Login successful!", { duration: 3000, position: "bottom-left" });
+            return res.data;
         } catch (err) {
             console.error("❌ Login error:", err);
             const msg = err?.response?.data?.message || "Login failed";
@@ -96,8 +104,6 @@ const AuthProvider = ({ children }) => {
                 duration: 6000,
                 position: "bottom-left",
             });
-
-
             throw err;
         }
     };
@@ -105,8 +111,16 @@ const AuthProvider = ({ children }) => {
     const loginWithGoogle = async (tokenId, device) => {
         try {
             const res = await axiosInstance.post("oauth2/google-login", { tokenId, device });
+
+            // Store tokens in localStorage as fallback for mobile
+            if (res.data.data.accessToken && res.data.data.refreshToken) {
+                localStorage.setItem('accessToken', res.data.data.accessToken);
+                localStorage.setItem('refreshToken', res.data.data.refreshToken);
+            }
+
             await fetchProfile(); // Will refresh user's profile after login
             toast.success("Google login successful!", { duration: 3000, position: "bottom-left" });
+            return res.data;
         } catch (err) {
             console.error("❌ Google login error:", err);
             const msg = err?.response?.data?.message || "Google login failed";
@@ -119,12 +133,17 @@ const AuthProvider = ({ children }) => {
         try {
             await axiosInstance.post("auth/logout");
             setUser(null);
+            // Clear localStorage on logout
+            localStorage.removeItem('user');
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('refreshToken');
             toast.success("Logged out successfully", { duration: 3000, position: "bottom-left" });
         } catch (err) {
             console.error("❌ Logout error:", err);
             toast.error("Logout failed");
         }
     };
+
 
 
 
@@ -434,7 +453,7 @@ const AuthProvider = ({ children }) => {
 
 
 
-    
+
 
     return (
         <AuthContext.Provider

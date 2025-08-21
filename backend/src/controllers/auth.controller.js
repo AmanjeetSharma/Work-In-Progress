@@ -132,6 +132,84 @@ const register = asyncHandler(async (req, res) => {
 
 
 
+// const login = asyncHandler(async (req, res) => {
+//     if (!req.body) {
+//         throw new ApiError(400, "Request body is missing");
+//     }
+
+//     const { email, password, device } = req.body;
+
+//     const user = await User.findOne({ email: email.toLowerCase() });
+
+//     if (!user) {
+//         throw new ApiError(401, "User does not exist");
+//     }
+
+//     // Check if password is set
+//     if (!user.password) {
+//         throw new ApiError(401, "User is registered with Google Account. Please register your account with a password to login using email/password.");
+//     }
+
+
+//     const isMatch = await bcrypt.compare(password, user.password);
+//     if (!isMatch) {
+//         throw new ApiError(401, "Invalid password");
+//     }
+
+//     const sessionId = generateSessionId();
+//     const refreshToken = generateRefreshToken(user._id, sessionId);
+//     const accessToken = generateAccessToken(user);
+
+//     let existingSession = user.sessions.find(
+//         (s) => s.device === (device || "Unknown Device")
+//     );
+
+//     if (existingSession) {
+//         existingSession.sessionId = sessionId;
+//         existingSession.refreshToken = refreshToken;
+//         existingSession.latestLogin = new Date();
+//         existingSession.isActive = true;
+//     } else {
+//         const newSession = {
+//             sessionId,
+//             device: device || "Unknown Device",
+//             refreshToken,
+//             firstLogin: new Date(),
+//             latestLogin: new Date(),
+//             isActive: true
+//         };
+//         user.sessions.push(newSession);
+//     }
+
+//     await user.save();
+
+//     const loggedInUser = await User.findById(user._id).select("-password -sessions");
+
+//     // Set cookies
+//     const options = {
+//         httpOnly: true,
+//         secure: true, // set to true in production
+//         sameSite: 'None',
+//         path: '/',
+//     };
+
+//     console.log(`✅  ${user.name} logged in successfully. Device: ${device || "Unknown Device"}`);
+
+//     return res
+//         .status(200)
+//         .cookie("accessToken", accessToken, options)
+//         .cookie("refreshToken", refreshToken, options)
+//         .json(
+//             new ApiResponse(
+//                 200,
+//                 {
+//                     user: loggedInUser
+//                 },
+//                 "✅ User logged in successfully"
+//             )
+//         );
+// });
+
 const login = asyncHandler(async (req, res) => {
     if (!req.body) {
         throw new ApiError(400, "Request body is missing");
@@ -149,7 +227,6 @@ const login = asyncHandler(async (req, res) => {
     if (!user.password) {
         throw new ApiError(401, "User is registered with Google Account. Please register your account with a password to login using email/password.");
     }
-
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
@@ -185,12 +262,14 @@ const login = asyncHandler(async (req, res) => {
 
     const loggedInUser = await User.findById(user._id).select("-password -sessions");
 
-    // Set cookies
+    // Set cookies - UPDATED FOR MOBILE COMPATIBILITY
     const options = {
         httpOnly: true,
-        secure: true, // set to true in production
-        sameSite: 'None',
+        secure: process.env.NODE_ENV === 'production', // Dynamic based on environment
+        sameSite: process.env.NODE_ENV === 'production' ? 'None' : 'Lax', // None requires Secure
+        domain: process.env.NODE_ENV === 'production' ? '.yourdomain.com' : undefined, // Replace with your domain
         path: '/',
+        maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days - explicitly set
     };
 
     console.log(`✅  ${user.name} logged in successfully. Device: ${device || "Unknown Device"}`);
@@ -203,14 +282,15 @@ const login = asyncHandler(async (req, res) => {
             new ApiResponse(
                 200,
                 {
-                    user: loggedInUser
+                    user: loggedInUser,
+                    // Also return tokens in response for mobile clients that might have cookie issues
+                    accessToken,
+                    refreshToken
                 },
-                "✅ User logged in successfully"
+                "User logged in successfully"
             )
         );
 });
-
-
 
 
 
