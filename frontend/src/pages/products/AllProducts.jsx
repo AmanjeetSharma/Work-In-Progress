@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../../context/AuthContext.jsx";
-import ProductCard from "./ProductCard.jsx";
-import Pagination from "./Pagination.jsx";
-import ProductModal from "./ProductModal.jsx";
+import { useAuth } from "../../context/AuthContext";
+import ProductCard from "./ProductCard";
+import Pagination from "./Pagination";
+import ProductModal from "./ProductModal";
 
 export default function AllProducts() {
   const { products, productsLoading, fetchProducts, totalPages } = useAuth();

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { motion } from "framer-motion";
 import { FiUser, FiMail, FiLock, FiCamera, FiArrowRight } from "react-icons/fi";
-import { toast } from "react-hot-toast";
 
 export default function Register() {
     const [form, setForm] = useState({ 

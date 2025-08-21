@@ -1,24 +1,24 @@
-// routes.jsx
+// routes
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "../context/AuthContext.jsx";
-import Navbar from "../components/Navbar.jsx";
-import Home from "../pages/Home.jsx";
-import Register from "../pages/Register.jsx";
-import Login from "../pages/Login.jsx";
-import Dashboard from "../pages/Dashboard.jsx";
-import NotFound from "../pages/NotFound.jsx";
-import Profile from "../pages/Profile.jsx";
-import ProtectedRoute from "../components/ProtectedRoute.jsx";
+import { AuthProvider } from "../context/AuthContext";
+import Navbar from "../components/Navbar";
+import Home from "../pages/Home";
+import Register from "../pages/Register";
+import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
+import NotFound from "../pages/NotFound";
+import Profile from "../pages/Profile";
+import ProtectedRoute from "../components/ProtectedRoute";
 import { Toaster } from "react-hot-toast";
-import ResetPassword from "../pages/ResetPassword.jsx";
-import Contact from "../pages/Contact.jsx";
-import About from "../pages/About.jsx";
-import AllProducts from "../pages/products/AllProducts.jsx";
-import AdminPanel from "../pages/admin/AdminPanel.jsx";
-import ProductPage from "../pages/products/productPage/ProductPage.jsx";
-import { CartProvider } from "../context/CartContext.jsx";
-import CartPage from "../pages/products/cart/CartPage.jsx";
+import ResetPassword from "../pages/ResetPassword";
+import Contact from "../pages/Contact";
+import About from "../pages/About";
+import AllProducts from "../pages/products/AllProducts";
+import AdminPanel from "../pages/admin/AdminPanel";
+import ProductPage from "../pages/products/productPage/ProductPage";
+import { CartProvider } from "../context/CartContext";
+import CartPage from "../pages/products/cart/CartPage";
 
 export default function AppRoutes() {
     return (

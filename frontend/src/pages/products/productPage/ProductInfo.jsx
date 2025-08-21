@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaStar, FaShoppingCart, FaHeart, FaShare } from "react-icons/fa";
-import { useCart } from "../../../context/CartContext.jsx";
+import { useCart } from "../../../context/CartContext";
 import { toast } from "react-hot-toast";
 
 export default function ProductInfo({ product = {}, reviews = [] }) {

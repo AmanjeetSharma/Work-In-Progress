@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { useAuth } from "../context/AuthContext.jsx";
-import Modal from "../components/Modal.jsx";
+import { useAuth } from "../context/AuthContext";
+import Modal from "../components/Modal";
 import defaultAvatar from "../assets/default-avatar.png";
 import {
     FiCamera,
