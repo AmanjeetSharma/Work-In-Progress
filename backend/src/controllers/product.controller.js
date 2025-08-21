@@ -112,7 +112,6 @@ const createProduct = asyncHandler(async (req, res) => {
         message: "Product created successfully",
         product: newProduct
     });
-
 });
 
 
