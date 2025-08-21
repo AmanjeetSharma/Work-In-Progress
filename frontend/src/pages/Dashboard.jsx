@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AIModal from "../components/AiModal.jsx";
+import AIModal from "../components/AIModal";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
