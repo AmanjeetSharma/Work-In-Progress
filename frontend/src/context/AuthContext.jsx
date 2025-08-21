@@ -153,7 +153,7 @@ const AuthProvider = ({ children }) => {
         try {
             await axiosInstance.delete("user/delete-account");
             setUser(null);
-            toast.success("✅ Account deleted successfully!");
+            toast.success("Account deleted successfully!");
         } catch (err) {
             console.error("❌ Delete account error:", err);
             toast.error("Account deletion failed");
