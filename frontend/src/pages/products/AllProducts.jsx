@@ -57,10 +57,10 @@ export default function AllProducts() {
         </div>
       ) : (
         <>
-          {/* Product grid */}
-          <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 relative z-20">
+          {/* Product grid - Updated for 4 columns */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 relative z-20">
             {products.map((product) => (
-              <div key={product._id} className="transition-transform hover:scale-[1.02] duration-150">
+              <div key={product._id} className="h-full transition-transform hover:scale-[1.02] duration-150">
                 <ProductCard
                   product={product}
                   onQuickView={() => handleQuickView(product)}

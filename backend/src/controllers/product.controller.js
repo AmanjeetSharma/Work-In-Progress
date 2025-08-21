@@ -242,7 +242,7 @@ const updateProduct = asyncHandler(async (req, res) => {
 // ❌ Slow for backend and frontend to render, bad for performance, bad UX.
 
 const getAllProducts = asyncHandler(async (req, res) => {
-    const { search, category, tags, minPrice, maxPrice, page = 1, limit = 6 } = req.query;
+    const { search, category, tags, minPrice, maxPrice, page = 1, limit = 8 } = req.query;
 
     const queryObject = {};
 

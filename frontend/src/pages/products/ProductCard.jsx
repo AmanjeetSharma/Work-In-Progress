@@ -7,7 +7,7 @@ export default function ProductCard({ product, onQuickView }) {
     : originalPrice;
 
   return (
-    <div className="w-full p-2 group">
+    <div className="w-full h-full p-2 group">
       <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-cyan-400/50 h-full flex flex-col">
         {/* Image Container */}
         <div className="relative aspect-square overflow-hidden">
@@ -43,18 +43,18 @@ export default function ProductCard({ product, onQuickView }) {
         {/* Product Info */}
         <div className="p-4 flex-grow flex flex-col">
           {/* Brand */}
-          <span className="text-xs text-cyan-600 dark:text-cyan-400 font-medium mb-1">
+          <span className="text-xs text-cyan-600 dark:text-cyan-400 font-medium mb-1 overflow-hidden">
             {product.brand}
           </span>
 
           {/* Name */}
-          <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">
+          <h3 className="text-sm font-semibold text-gray-900 dark:text-white line-clamp-2 mb-1 min-h-[2.5rem]">
             {product.name}
           </h3>
 
-          {/* Rating */}
+          {/* Rating - Only show if rating exists */}
           {product.rating > 0 && (
-            <div className="flex items-center mb-3">
+            <div className="flex items-center mb-1">
               <div className="flex mr-1">
                 {[...Array(5)].map((_, i) => (
                   <svg
@@ -68,13 +68,13 @@ export default function ProductCard({ product, onQuickView }) {
                 ))}
               </div>
               <span className="text-xs text-gray-600 dark:text-gray-400">
-                {product.rating.toFixed(1)} {/* Added toFixed(1) for rating */}
+                {product.rating.toFixed(1)}
               </span>
             </div>
           )}
 
-          {/* Price */}
-          <div className="mt-auto">
+          {/* Price - Moved closer to name/rating */}
+          <div className="mt-1">
             <div className="flex items-center">
               <span className="text-lg font-bold text-gray-900 dark:text-white">
                 ₹{discountedPrice.toLocaleString()}
@@ -88,7 +88,7 @@ export default function ProductCard({ product, onQuickView }) {
 
             {/* Tags */}
             {product.tags.length > 0 && (
-              <div className="mt-2 flex flex-wrap gap-1">
+              <div className="mt-1 flex flex-wrap gap-1">
                 {product.tags.slice(0, 2).map((tag) => (
                   <span
                     key={tag}
@@ -103,7 +103,7 @@ export default function ProductCard({ product, onQuickView }) {
             {/* View Details Button */}
             <Link
               to={`/products/${product.slug}`}
-              className="mt-3 block text-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-white text-sm py-2 rounded-lg transition-colors duration-200 w-full"
+              className="mt-2 block text-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-800 dark:text-white text-sm py-2 rounded-lg transition-colors duration-200 w-full"
               onClick={(e) => e.stopPropagation()}
             >
               View Details

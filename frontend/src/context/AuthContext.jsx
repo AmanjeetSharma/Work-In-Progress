@@ -39,8 +39,13 @@ const AuthProvider = ({ children }) => {
         try {
             setProductsLoading(true);
             const res = await axiosInstance.get(`/products?page=${page}`);
-            setProducts(res.data.data.products || []);
-            setTotalPages(res.data.data.totalPages || 1);
+
+            // Handle both response shapes safely
+            const productsData = res.data?.data?.products || res.data?.data || [];
+            const totalPagesData = res.data?.data?.totalPages || res.data?.totalPages || 1;
+
+            setProducts(productsData);
+            setTotalPages(totalPagesData);
         } catch (error) {
             console.error("❌ Failed to fetch products:", error);
             toast.error(error?.response?.data?.message || "Failed to fetch products");
@@ -48,6 +53,7 @@ const AuthProvider = ({ children }) => {
             setProductsLoading(false);
         }
     };
+
 
 
 
@@ -434,7 +440,7 @@ const AuthProvider = ({ children }) => {
 
 
 
-    
+
 
     return (
         <AuthContext.Provider

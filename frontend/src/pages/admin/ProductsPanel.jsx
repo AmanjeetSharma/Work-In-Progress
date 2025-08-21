@@ -23,17 +23,17 @@ const ProductsPanel = () => {
     const [expandedProduct, setExpandedProduct] = useState(null);
 
     useEffect(() => {
-        fetchProducts({ page: currentPage });
+        fetchProducts(currentPage);
     }, [currentPage]);
 
     const handleDelete = async () => {
         try {
             await deleteProduct(productToDelete);
-            toast.success('Product deleted successfully',{position: 'top-center'});
-            fetchProducts({ page: currentPage });
+            toast.success('Product deleted successfully', { position: 'top-center' });
+            fetchProducts(currentPage);
             setShowDeleteModal(false);
         } catch (error) {
-            toast.error('Failed to delete product',{position: 'top-center'});
+            toast.error('Failed to delete product', { position: 'top-center' });
         }
     };
 
@@ -440,7 +440,7 @@ const ProductsPanel = () => {
                     isEditing={isEditing}
                     onClose={() => setShowAddModal(false)}
                     onSuccess={() => {
-                        fetchProducts({ page: currentPage });
+                        fetchProducts(currentPage);
                         setShowAddModal(false);
                     }}
                 />
