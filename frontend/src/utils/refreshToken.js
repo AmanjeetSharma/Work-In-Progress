@@ -11,7 +11,7 @@ import axios from 'axios';
 const refreshToken = async () => {
     try {
         // Make an API call to refresh the token
-        const response = await axios.post('http://localhost:3000/api/v1/auth/refresh-token', null, {
+        const response = await axios.post(import.meta.env.VITE_API_URL + '/auth/refresh-token', null, {
             withCredentials: true, // Ensure the refresh token is sent in cookies
         });
 
