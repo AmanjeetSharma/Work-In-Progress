@@ -76,7 +76,7 @@ export const googleLogin = asyncHandler(async (req, res) => {
     httpOnly: true,
     secure: true, // set true in prod
     sameSite: 'None',
-    Path: '/',
+    path: '/',
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   };
 
