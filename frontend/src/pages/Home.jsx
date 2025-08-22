@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { ShoppingCart, ArrowUp } from "lucide-react";
 import Torch from "../components/buttons/torchButton/Torch";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -44,9 +48,6 @@ const Home = () => {
             NEXTxLoadOut
           </div>
         </motion.div>
-
-
-
 
         <motion.p
           initial={{ opacity: 0 }}
@@ -103,7 +104,7 @@ const Home = () => {
         >
           <div
             className="cursor-pointer"
-            onClick={() => window.location.href = "/accessories"}
+            onClick={() => navigate("/accessories")}
           >
             <Torch text="Shop Now" icon={<ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />} />
           </div>
