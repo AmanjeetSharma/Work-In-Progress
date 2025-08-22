@@ -1,6 +1,6 @@
-import './TorchButton.css';
+import './Torch.css';
 
-const TorchButton = () => {
+const Torch = () => {
     return (
         <div class="light-button">
             <button class="bt">
@@ -28,4 +28,4 @@ const TorchButton = () => {
     )
 }
 
-export default TorchButton;
+export default Torch;

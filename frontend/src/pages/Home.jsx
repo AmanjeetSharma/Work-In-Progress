@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ShoppingCart, ArrowUp } from "lucide-react";
-import TorchButton from "../components/animations/torchBtn/TorchButton";
-
+import Torch from "../components/animations/torchButton/Torch";
 const Home = () => {
   return (
     <motion.div
@@ -95,7 +94,7 @@ const Home = () => {
           </motion.span>
         </motion.div>
 
-        {/* Single Shop Now Button with TorchButton Animation */}
+        {/* Single Shop Now Button with Torch Animation */}
         <motion.div
           className="flex justify-center relative z-30"
           initial={{ opacity: 0, y: 30 }}
@@ -106,7 +105,7 @@ const Home = () => {
             className="cursor-pointer"
             onClick={() => window.location.href = "/accessories"}
           >
-            <TorchButton text="Shop Now" icon={<ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />} />
+            <Torch text="Shop Now" icon={<ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />} />
           </div>
         </motion.div>
       </div>
