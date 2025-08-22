@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ShoppingCart, ArrowUp } from "lucide-react";
-import Torch from "../components/animations/torchButton/Torch";
+import Torch from "../components/buttons/torchButton/Torch";
 const Home = () => {
   return (
     <motion.div
