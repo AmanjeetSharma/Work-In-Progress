@@ -88,7 +88,7 @@ export const verificationEmail = (token) => {
             <p>Thank you for signing up! To complete your email verification please click the button below:</p>
             
             <div style="text-align: center;">
-              <a href="${process.env.BACKEND_URL}/api/v1/user/verify-email/${token}" class="button">
+              <a href="${process.env.BACKEND_URL}/user/verify-email/${token}" class="button">
                 Verify Email Address
               </a>
             </div>
