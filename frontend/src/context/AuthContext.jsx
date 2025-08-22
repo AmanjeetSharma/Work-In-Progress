@@ -250,7 +250,7 @@ const AuthProvider = ({ children }) => {
                 newPassword,
                 confirmPassword,
             });
-            toast.success("✅ Password has been reset successfully. Please login with your new password.");
+            toast.success("Password has been reset successfully. Please login with your new password.");
         } catch (err) {
             console.error("Reset password error:", err);
             toast.error(err?.response?.data?.message || "Failed to reset password");
